@@ -1,0 +1,157 @@
+{
+    "type": "Config",
+    "favicon": "/images/favicon.svg",
+    "header": {
+        "headerVariant": "variant-c",
+        "primaryColors": "colors-a",
+        "secondaryColors": "colors-f",
+        "title": "Starter",
+        "isTitleVisible": true,
+        "primaryLinks": [
+            {
+                "type": "Link",
+                "label": "Home",
+                "url": "/",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "Careers",
+                "url": "/careers",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "FAQ",
+                "url": "/faq",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "Blog",
+                "altText": "Blog",
+                "url": "/blog"
+            }
+        ],
+        "secondaryLinks": [
+            {
+                "type": "Button",
+                "label": "Sign up",
+                "url": "/",
+                "altText": "Sign up",
+                "style": "primary"
+            }
+        ],
+        "styles": {
+            "self": {
+                "width": "narrow",
+                "padding": ["pt-5", "pb-5", "pr-4", "pl-4"]
+            }
+        },
+        "logo": {
+            "altText": "altText of the image",
+            "caption": "Caption of the image",
+            "elementId": "",
+            "styles": {
+                "self": {
+                    "opacity": 100
+                }
+            },
+            "type": "ImageBlock",
+            "url": "/images/logo.svg"
+        }
+    },
+    "footer": {
+        "colors": "colors-h",
+        "logo": {
+            "altText": "altText of the image",
+            "caption": "Caption of the image",
+            "elementId": "",
+            "styles": {
+                "self": {
+                    "opacity": 100
+                }
+            },
+            "type": "ImageBlock",
+            "url": "/images/logo.svg"
+        },
+        "title": "Starter",
+        "contacts": {
+            "title": "Contact details",
+            "phoneNumber": "850-123-5021",
+            "phoneAltText": "Our phone",
+            "email": "info@lorem.mail",
+            "emailAltText": "Our email",
+            "address": "312 Lovely Street, NY",
+            "addressAltText": "Our address"
+        },
+        "copyrightText": "Powered by [Stackbit](https://www.stackbit.com/)",
+        "primaryLinks": [
+            {
+                "type": "Link",
+                "label": "Home",
+                "url": "/",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "Careers",
+                "url": "/careers",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "FAQ",
+                "url": "/faq",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "Blog",
+                "url": "/blog",
+                "altText": ""
+            }
+        ],
+        "socialLinks": [
+            {
+                "type": "Social",
+                "altText": "Twitter",
+                "label": "Twitter",
+                "url": "/",
+                "icon": "twitter"
+            },
+            {
+                "type": "Social",
+                "altText": "Instagram",
+                "label": "Instagram",
+                "url": "/",
+                "icon": "instagram"
+            },
+            {
+                "type": "Social",
+                "altText": "Facebook",
+                "label": "Facebook",
+                "url": "/",
+                "icon": "facebook"
+            }
+        ],
+        "legalLinks": [
+            {
+                "type": "Link",
+                "label": "Privacy Policy",
+                "url": "/"
+            },
+            {
+                "type": "Link",
+                "label": "Terms & Conditions",
+                "url": "/"
+            }
+        ],
+        "styles": {
+            "self": {
+                "width": "narrow",
+                "padding": ["pt-16", "pb-16", "pr-4", "pl-4"]
+            }
+        }
+    }
+}
