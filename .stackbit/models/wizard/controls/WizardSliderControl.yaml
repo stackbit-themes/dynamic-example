@@ -1,0 +1,17 @@
+name: WizardSliderControl
+label: Slider Control
+extends: [WizardControl]
+groups: [wizardControls]
+fields:
+  - type: number
+    name: minValue
+    label: Minimum value
+    default: 0
+  - type: number
+    name: maxValue
+    label: Maximum value
+    default: 100
+  - type: number
+    name: defaultValue
+    label: Default value
+    default: 50

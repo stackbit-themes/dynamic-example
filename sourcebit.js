@@ -1,5 +1,5 @@
 const path = require('path');
-const { flattenMarkdownData, cssClassesFromFilePath, cssClassesFromUrlPath, urlPathFromFilePath } = require('./src/utils/page-utils');
+const { flattenMarkdownData, urlPathFromFilePath } = require('./src/utils/page-utils');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -43,33 +43,39 @@ module.exports = {
                 liveUpdate: isDev,
                 flattenAssetUrls: true,
                 commonProps: (objects) => {
-                    const site = objects.find((page) => page.__metadata.id === 'content/data/config.json');
+                    const site = objects.find(
+                        (page) => page.__metadata.id === 'content/data/config.json'
+                    );
                     return { site };
                 },
                 pages: (objects) => {
-                    const personObjects = objects.filter((object) => object.__metadata.relProjectPath?.startsWith('content/data/team/') && !!object.slug);
+                    const personObjects = objects.filter(
+                        (object) =>
+                            object.__metadata.relProjectPath?.startsWith('content/data/team/') &&
+                            !!object.slug
+                    );
                     const personPages = personObjects.map((person) => {
                         const { __metadata, ...restProps } = person;
                         const urlPath = `/blog/author/${person.slug}`;
                         return {
                             __metadata: {
                                 ...__metadata,
-                                urlPath,
-                                pageCssClasses: cssClassesFromUrlPath(urlPath)
+                                urlPath
                             },
                             ...restProps
                         };
                     });
 
-                    const pageObjects = objects.filter((page) => page.__metadata.sourceName === 'pages');
+                    const pageObjects = objects.filter(
+                        (page) => page.__metadata.sourceName === 'pages'
+                    );
                     const pages = pageObjects.map((page) => {
                         const { __metadata, ...restProps } = page;
                         const urlPath = urlPathFromFilePath(page.__metadata.relSourcePath);
                         return {
                             __metadata: {
                                 ...__metadata,
-                                urlPath,
-                                pageCssClasses: cssClassesFromFilePath(page.__metadata.relSourcePath)
+                                urlPath
                             },
                             ...restProps
                         };

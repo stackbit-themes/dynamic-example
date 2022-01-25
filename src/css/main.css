@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @tailwind base;
@@ -130,12 +135,10 @@
         }
     }
 
-    /* Buttons */
     .sb-component-button {
         @apply border-2 inline-flex items-center justify-center no-underline text-center transition duration-200 ease-in hover:opacity-80;
     }
 
-    /* Links */
     .sb-component-link {
         @apply inline-flex items-center justify-center no-underline relative;
     }
@@ -151,7 +154,6 @@
         @apply w-full;
     }
 
-    /* Socials */
     .sb-component-social {
         @apply inline-flex items-center justify-center no-underline transition duration-200 ease-in hover:opacity-80;
     }
@@ -161,22 +163,18 @@
         @apply border-2 rounded-full p-2;
     }
 
-    /* Dividers */
     .sb-divider {
         @apply flex items-center h-4 before:flex-grow before:h-px before:bg-current;
     }
 
-    /* Badge */
     .sb-component-badge {
         @apply uppercase tracking-wider text-primary;
     }
 
-    /* Featured items */
     .sb-component-item-hover {
         @apply transition duration-200 ease-in;
     }
 
-    /* Form controls */
     .sb-label {
         @apply inline-block mb-1;
     }
@@ -226,12 +224,10 @@
         background-repeat: no-repeat;
     }
 
-    /* Cards */
     .sb-card {
         @apply border border-current;
     }
 
-    /* Sections */
     .sb-component-hero-section .sb-component-image-block[src*='.jpg'],
     .sb-component-feature-highlight-section .sb-component-image-block[src*='.jpg'],
     .sb-component-media-gallery-section .sb-component-image-block[src*='.jpg'] {
@@ -243,7 +239,6 @@
         text-align: center;
     }
 
-    /* Color palettes */
     .colors-a {
         @apply bg-light text-on-light;
         .sb-input,
@@ -421,3 +416,4 @@
         }
     }
 }
+*/

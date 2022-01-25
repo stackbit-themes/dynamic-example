@@ -1,0 +1,10 @@
+name: WizardTextControl
+label: Text Control
+extends: [WizardControl]
+groups: [wizardControls]
+fields:
+  - type: number
+    name: minLength
+    label: Minimum length
+    default: 1
+    min: 1

@@ -1,0 +1,15 @@
+name: WizardControl
+label: Wizard Control
+fields:
+  - type: boolean
+    name: required
+    label: Required
+    default: true
+  - type: string
+    name: label
+    label: Label
+    default: Label for this control
+  - type: string
+    name: varName
+    label: Variable name
+    default: ''

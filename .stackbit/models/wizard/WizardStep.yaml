@@ -1,0 +1,24 @@
+name: WizardStep
+label: Wizard Step
+labelField: title
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: 'Step title'
+    required: true
+  - type: markdown
+    name: description
+    label: Description
+    default: 'Markdown-based description'
+  - type: boolean
+    name: skippable
+    label: 'User can skip?'
+    default: false
+  - type: list
+    name: controls
+    label: Controls
+    items:
+      type: model
+      groups: [wizardControls]
+    default: []
