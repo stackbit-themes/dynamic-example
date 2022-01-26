@@ -14,8 +14,8 @@ export type ControlStateBuilder = (control: WizardControlModel, newValue: Wizard
 export let controlStateBuilders: Record<string, ControlStateBuilder> = {}
 
 export function buildInitialState(control: WizardControlModel): WizardControlState {
-    console.log(control); // TODO remove
-    console.log(controlValueInitializers)
+    //console.log(control); // TODO remove
+    //console.log(controlValueInitializers)
     const initialValue = controlValueInitializers[control.type](control);
     const initialStatus = controlStateBuilders[control.type](control, initialValue);
     return initialStatus;

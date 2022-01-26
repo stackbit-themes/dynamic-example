@@ -42,7 +42,7 @@ export default function WizardStep(props) {
                 <h2 className="card-title">{props.title}</h2>
                 <Markdown className="mb-5">{props.description}</Markdown>
                 {props.controls.length > 0 && (
-                    <div data-sb-field-path="controls">
+                    <div data-sb-field-path=".controls">
                         {props.controls.map((control, index) => {
                             const Component = getComponent(control.type);
                             if (!Component) {
@@ -54,7 +54,7 @@ export default function WizardStep(props) {
                                         index={index}
                                         controlState={controlStates[index]}
                                         onValueChange={handleControlValueChange}
-                                        data-sb-field-path={`controls.${index}`}
+                                        data-sb-field-path={`.controls.${index}`}
                                         {...control}
                                     />
                                 </div>
