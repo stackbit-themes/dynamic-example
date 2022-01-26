@@ -17,7 +17,7 @@ contentModels:
     isPage: true
     urlPath: '/{slug}'
     newFilePath: '{slug}.md'
-  WizardFlowLayout:
+  WizardFlow:
     isPage: true
     urlPath: '/flows/{slug}'
     newFilePath: 'flows/{slug}.md'

@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Head from 'next/head';
-import classNames from 'classnames';
-
 import Header from '../../sections/Header';
 import Footer from '../../sections/Footer';
 

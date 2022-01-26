@@ -11,10 +11,6 @@ fields:
     name: description
     label: Description
     default: 'Markdown-based description'
-  - type: boolean
-    name: skippable
-    label: 'User can skip?'
-    default: false
   - type: list
     name: controls
     label: Controls

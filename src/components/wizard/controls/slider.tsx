@@ -1,20 +1,19 @@
 import * as React from 'react';
-import { WizardControlProps, controlInitializers, controlUpdaters } from './ControlStateTypes';
-import { WizardSliderControlModel, WizardInputControlModel } from '../../../utils/model-interfaces';
+import { WizardControlProps, controlValueInitializers, controlStateBuilders } from './types';
+import { WizardSliderControlModel } from '../../../utils/model-interfaces';
 
 const MODEL_NAME = 'WizardSliderControl';
 
-controlInitializers[MODEL_NAME] = (control) => {
+controlValueInitializers[MODEL_NAME] = (control) => {
     return (control as WizardSliderControlModel).defaultValue;
 };
 
-controlUpdaters[MODEL_NAME] = (control, newValue) => {
+controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     return { valid: true, value: newValue, errorMessage: null };
 };
 
 export default function WizardSliderInput(props: WizardControlProps) {
     const sliderProps = props as unknown as WizardSliderControlModel;
-
     return (
         <div className="form-control">
             <label className="label">
@@ -27,7 +26,7 @@ export default function WizardSliderInput(props: WizardControlProps) {
                 defaultValue={sliderProps.defaultValue}
                 className="range w-1/2"
                 onChange={(e) => {
-                    props.updateControlStatus(props, props.index, e.target.value);
+                    props.onValueChange(props, props.index, e.target.value);
                 }}
             />
         </div>

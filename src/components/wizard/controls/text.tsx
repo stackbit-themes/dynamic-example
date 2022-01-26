@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { WizardControlProps, controlInitializers, controlUpdaters } from './ControlStateTypes';
+import { WizardControlProps, controlValueInitializers, controlStateBuilders } from './types';
 
 const MODEL_NAME = 'WizardTextControl';
 
-controlInitializers[MODEL_NAME] = (control) => {
+controlValueInitializers[MODEL_NAME] = (control) => {
     return '';
 };
 
-controlUpdaters[MODEL_NAME] = (control, newValue) => {
+controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     const v = newValue as string;
 
     if (v) {
@@ -40,10 +40,10 @@ export default function WizardTextInput(props: WizardControlProps) {
                 type="text"
                 placeholder={props.label}
                 className={classNames('input', 'input-bordered', 'w-1/2', {
-                    'input-error': !props.controlStatus.valid
+                    'input-error': !props.controlState.valid
                 })}
                 onChange={(e) => {
-                    props.updateControlStatus(props, props.index, e.target.value);
+                    props.onValueChange(props, props.index, e.target.value);
                 }}
             />
         </div>

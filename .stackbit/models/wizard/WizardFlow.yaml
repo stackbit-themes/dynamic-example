@@ -1,7 +1,6 @@
-name: WizardFlowLayout
+name: WizardFlow
 label: Wizard Flow
-# Elad change
-layout: WizardFlowLayout
+layout: WizardFlow
 hideContent: true
 fields:
   - type: string

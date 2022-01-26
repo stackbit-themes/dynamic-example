@@ -10,6 +10,6 @@ fields:
     label: Label
     default: Label for this control
   - type: string
-    name: varName
+    name: variableName
     label: Variable name
     default: ''

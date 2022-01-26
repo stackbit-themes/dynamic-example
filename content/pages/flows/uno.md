@@ -1,10 +1,9 @@
 ---
 title: Flow Numero Uno
-layout: WizardFlowLayout
+layout: WizardFlow
 steps:
   - type: WizardStep
     title: Card One
-    skippable: false
     description: >
       How **you** can work with us,
       to enable a brighter future!
@@ -12,41 +11,39 @@ steps:
       - type: WizardTextControl
         required: true
         label: How shall we call you?
-        varName: nickname
+        variableName: nickname
         minLength: 3
       - type: WizardTextControl
         required: false
         label: Not essential
-        varName: notEssentialString
+        variableName: notEssentialString
         minLength: 1
       - type: WizardSliderControl
         required: true
         label: Awesomeness factor
-        varName: awesomeness
+        variableName: awesomeness
         minValue: 0
         maxValue: 10
         defaultValue: 5
   - type: WizardStep
-    title: Card Two
-    skippable: false
+    title: And now for the second card
     description: >
-      How **you** can work with us,
-      to enable a brighter future!
+      You still got a _chance_.
     controls:
       - type: WizardTextControl
         required: true
-        label: How shall we call you?
-        varName: nickname2
+        label: How shall we call you, again?
+        variableName: nickname2
         minLength: 3
       - type: WizardTextControl
         required: false
-        label: Not essential
-        varName: notEssentialString2
+        label: Also not essential
+        variableName: notEssentialString2
         minLength: 1
       - type: WizardSliderControl
         required: true
-        label: Awesomeness factor
-        varName: awesomeness2
+        label: Awesomeness factor, reloaded
+        variableName: awesomeness2
         minValue: 0
         maxValue: 10
         defaultValue: 5
