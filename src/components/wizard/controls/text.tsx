@@ -30,7 +30,7 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     }
 };
 
-export default function WizardTextInput(props: WizardControlProps) {
+export default function WizardTextControl(props: WizardControlProps) {
     return (
         <div className="form-control">
             <label className="label">

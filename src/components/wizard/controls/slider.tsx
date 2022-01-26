@@ -12,7 +12,7 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     return { valid: true, value: newValue, errorMessage: null };
 };
 
-export default function WizardSliderInput(props: WizardControlProps) {
+export default function WizardSliderControl(props: WizardControlProps) {
     const sliderProps = props as unknown as WizardSliderControlModel;
     return (
         <div className="form-control">
