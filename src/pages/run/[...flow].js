@@ -44,6 +44,7 @@ export default function RunFlowPage(props) {
                         <div className={'flex m-6 ' + (isCurrStep ? '' : 'hidden')} key={index}>
                             <Component
                                 {...step}
+                                data-sb-field-path={`steps.${index}`}
                                 onValidityChange={isCurrStep ? handleStepValidityChange : null}
                             />
                         </div>
