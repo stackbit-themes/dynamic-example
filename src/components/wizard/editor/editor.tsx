@@ -34,7 +34,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                     <div data-sb-field-path=".steps">
                         {steps.map((step, index) => {
                             const stepType = step.type || 'WizardFlow'; // TODO open task - type not stored by studio
-                            const Component = getComponent(step.type);
+                            const Component = getComponent(stepType);
                             if (!Component) {
                                 throw new Error(
                                     `no component matching the step type: ${step.type}`
