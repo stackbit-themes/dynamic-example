@@ -39,7 +39,7 @@ steps:
       - type: WizardTextControl
         required: false
         label: Also not essential
-        variableName: notEssentialString2
+        variableName: notEssentialString
         minLength: 1
       - type: WizardSliderControl
         required: true
