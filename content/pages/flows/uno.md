@@ -6,6 +6,8 @@ steps:
     title: First Card
     description: |
       How **you** can work with us, to enable a brighter future!
+
+      Do it now!
     controls:
       - type: WizardTextControl
         required: true
