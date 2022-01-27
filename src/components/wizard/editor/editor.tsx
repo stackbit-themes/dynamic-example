@@ -12,6 +12,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
     const selfUrl = flow.__metadata.urlPath;
 
     const flowDefinitionErrors = validateFlowDefinition(flow);
+    //?to=${selfUrl}?store=false?x=true
     return (
         <DefaultBaseLayout page={flow} site={props.site}>
             <main id="main" className="sb-layout sb-page-layout">
@@ -24,12 +25,12 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                     <FlowValidAlert
                         action={{
                             label: 'Run',
-                            url: `/run/${selfUrl}?to=${selfUrl}?store=false?x=true`
+                            url: `/run/${selfUrl}`
                         }}
                     />
                 ) : (
-                        <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
-                    )}
+                    <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
+                )}
                 {steps.length > 0 && (
                     <div data-sb-field-path=".steps">
                         {steps.map((step, index) => {

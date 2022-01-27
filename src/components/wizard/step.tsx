@@ -38,10 +38,17 @@ export default function WizardStep(props) {
     });
 
     return (
-        <div className="card shadow-lg bg-base-300 m-5 min-w-[600px] max-w-screen-md" {...getDataAttrs(props)}>
+        <div
+            className="card shadow-lg bg-blue-200 m-5 min-w-[600px] max-w-screen-md"
+            {...getDataAttrs(props)}
+        >
             <div className="card-body">
-                <h2 className="card-title" data-sb-field-path=".title">{props.title}</h2>
-                <Markdown className="mb-5" data-sb-field-path=".description">{props.description}</Markdown>
+                <h2 className="card-title" data-sb-field-path=".title">
+                    {props.title}
+                </h2>
+                <Markdown className="mb-5" data-sb-field-path=".description">
+                    {props.description}
+                </Markdown>
                 {props.controls.length > 0 && (
                     <div data-sb-field-path=".controls">
                         {props.controls.map((control, index) => {
