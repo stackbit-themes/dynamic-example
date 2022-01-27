@@ -28,7 +28,7 @@ steps:
         defaultValue: 5
   - type: WizardStep
     title: And now for the second card
-    description: >
+    description: |
       You still got a _chance_, good luck to you on your journey!
     controls:
       - type: WizardTextControl
@@ -48,13 +48,16 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
+  - title: Step title
+    description: Markdown-based description
+    controls: []
   - type: WizardStep
     title: The final one
-    description: >
+    description: |
       You still got a _last, final chance_. Seriously, it's the end.
     controls:
       - type: WizardTextControl
         required: false
-        label: Any last words, chap?
+        label: 'Any last words, chap?'
         variableName: nickname3
 ---
