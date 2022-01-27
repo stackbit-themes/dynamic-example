@@ -48,16 +48,6 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
-  - title: Step title
-    description: Markdown-based description
-    controls:
-      - required: true
-        label: Just a humble slider
-        variableName: ''
-        minValue: 1
-        maxValue: 100
-        defaultValue: 1
-        type: WizardSliderControl
   - type: WizardStep
     title: The final one
     description: |
