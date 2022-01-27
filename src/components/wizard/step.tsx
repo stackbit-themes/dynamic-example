@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../components-registry';
+import { getDataAttrs } from '../../../utils/get-data-attrs';
 import {
     buildInitialState,
     OnControlValueChange,
