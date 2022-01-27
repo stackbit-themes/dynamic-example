@@ -42,7 +42,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                             return (
                                 <div className="flex m-6" key={index}>
                                     <div className="text-8xl p-4">{index + 1}</div>
-                                    <Component {...step} data-sb-field-path={`steps.${index}`} />
+                                    <Component {...step} data-sb-field-path={`.${index}`} />
                                 </div>
                             );
                         })}
