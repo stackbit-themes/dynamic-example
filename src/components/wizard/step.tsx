@@ -38,7 +38,7 @@ export default function WizardStep(props) {
     });
 
     return (
-        <div className="card shadow-lg bg-base-300 m-5 max-w-screen-md" {...getDataAttrs(props)}>
+        <div className="card shadow-lg bg-base-300 m-5 w-32 max-w-screen-md" {...getDataAttrs(props)}>
             <div className="card-body">
                 <h2 className="card-title" data-sb-field-path=".title">{props.title}</h2>
                 <Markdown className="mb-5" data-sb-field-path=".description">{props.description}</Markdown>
