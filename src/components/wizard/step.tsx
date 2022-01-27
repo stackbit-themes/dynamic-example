@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../components-registry';
+import { getDataAttrs } from '../../utils/get-data-attrs';
 import {
     buildInitialState,
     OnControlValueChange,
@@ -37,10 +38,10 @@ export default function WizardStep(props) {
     });
 
     return (
-        <div className="card shadow-lg bg-base-300 m-5 max-w-screen-md">
+        <div className="card shadow-lg bg-base-300 m-5 min-w-[600px] max-w-screen-md" {...getDataAttrs(props)}>
             <div className="card-body">
-                <h2 className="card-title">{props.title}</h2>
-                <Markdown className="mb-5">{props.description}</Markdown>
+                <h2 className="card-title" data-sb-field-path=".title">{props.title}</h2>
+                <Markdown className="mb-5" data-sb-field-path=".description">{props.description}</Markdown>
                 {props.controls.length > 0 && (
                     <div data-sb-field-path=".controls">
                         {props.controls.map((control, index) => {
@@ -49,12 +50,11 @@ export default function WizardStep(props) {
                                 throw new Error(`no component for control type: ${control.type}`);
                             }
                             return (
-                                <div key={index} className="mt-4">
+                                <div key={index} className="mt-4" data-sb-field-path={`.${index}`}>
                                     <Component
                                         index={index}
                                         controlState={controlStates[index]}
                                         onValueChange={handleControlValueChange}
-                                        data-sb-field-path={`.controls.${index}`}
                                         {...control}
                                     />
                                 </div>

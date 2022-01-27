@@ -28,10 +28,10 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                         }}
                     />
                 ) : (
-                    <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
-                )}
+                        <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
+                    )}
                 {steps.length > 0 && (
-                    <div data-sb-field-path="steps">
+                    <div data-sb-field-path=".steps">
                         {steps.map((step, index) => {
                             const Component = getComponent(step.type);
                             if (!Component) {
@@ -42,7 +42,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                             return (
                                 <div className="flex m-6" key={index}>
                                     <div className="text-8xl p-4">{index + 1}</div>
-                                    <Component {...step} data-sb-field-path={`steps.${index}`} />
+                                    <Component {...step} data-sb-field-path={`.${index}`} />
                                 </div>
                             );
                         })}
