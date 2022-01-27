@@ -28,8 +28,8 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                         }}
                     />
                 ) : (
-                    <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
-                )}
+                        <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
+                    )}
                 {steps.length > 0 && (
                     <div data-sb-field-path=".steps">
                         {steps.map((step, index) => {
