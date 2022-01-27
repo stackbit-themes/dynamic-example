@@ -28,7 +28,7 @@ steps:
   - type: WizardStep
     title: And now for the second card
     description: >
-      You still got a _chance_.
+      You still got a _chance_, good luck to you on your journey!
     controls:
       - type: WizardTextControl
         required: true
@@ -47,4 +47,13 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
+  - type: WizardStep
+    title: The final one
+    description: >
+      You still got a _last, final chance_. Seriously, it's the end.
+    controls:
+      - type: WizardTextControl
+        required: false
+        label: Any last words, chap?
+        variableName: nickname3
 ---

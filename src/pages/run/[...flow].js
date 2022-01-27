@@ -34,6 +34,21 @@ export default function RunFlowPage(props) {
     return (
         <DefaultBaseLayout page={flow} site={props.site}>
             <div className="flex justify-center">
+                <ul className="steps steps-horizontal">
+                    {steps.map((step, index) => {
+                        return (
+                            <li
+                                key={index}
+                                className={'step ' + (index <= currStep ? 'step-primary' : '')}
+                            >
+                                {step.title}
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+
+            <div className="flex justify-center">
                 {steps.map((step, index) => {
                     const Component = getComponent(step.type);
                     if (!Component) {
