@@ -50,7 +50,7 @@ export default function WizardStep(props) {
                                 throw new Error(`no component for control type: ${control.type}`);
                             }
                             return (
-                                <div key={index} className="mt-4" data-sb-field-path={`.controls.${index}`}>
+                                <div key={index} className="mt-4" data-sb-field-path={`.${index}`}>
                                     <Component
                                         index={index}
                                         controlState={controlStates[index]}
