@@ -52,7 +52,7 @@ steps:
     description: Markdown-based description
     controls:
       - required: true
-        label: Label for this control
+        label: Just a humble slider
         variableName: ''
         minValue: 0
         maxValue: 100
