@@ -54,7 +54,7 @@ steps:
       - required: true
         label: Just a humble slider
         variableName: ''
-        minValue: 0
+        minValue: 1
         maxValue: 100
         defaultValue: 50
         type: WizardSliderControl
