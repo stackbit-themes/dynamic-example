@@ -3,10 +3,9 @@ title: Flow Numero Uno
 layout: WizardFlow
 steps:
   - type: WizardStep
-    title: Card One
-    description: >
-      How **you** can work with us,
-      to enable a brighter future!
+    title: First Card
+    description: |
+      How **you** can work with us, to enable a brighter future!
     controls:
       - type: WizardTextControl
         required: true
@@ -27,12 +26,12 @@ steps:
         defaultValue: 5
   - type: WizardStep
     title: And now for the second card
-    description: >
+    description: |
       You still got a _chance_.
     controls:
       - type: WizardTextControl
         required: true
-        label: How shall we call you, again?
+        label: 'How shall we call you, again?'
         variableName: nickname2
         minLength: 3
       - type: WizardTextControl
@@ -42,7 +41,7 @@ steps:
         minLength: 1
       - type: WizardSliderControl
         required: true
-        label: Awesomeness factor, reloaded
+        label: 'Awesomeness factor, reloaded'
         variableName: awesomeness2
         minValue: 0
         maxValue: 10
