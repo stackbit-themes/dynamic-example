@@ -50,7 +50,14 @@ steps:
         defaultValue: 5
   - title: Step title
     description: Markdown-based description
-    controls: []
+    controls:
+      - required: true
+        label: Label for this control
+        variableName: ''
+        minValue: 0
+        maxValue: 100
+        defaultValue: 50
+        type: WizardSliderControl
   - type: WizardStep
     title: The final one
     description: |
