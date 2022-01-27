@@ -50,6 +50,7 @@ export default function RunFlowPage(props) {
 
             <div className="flex justify-center">
                 {steps.map((step, index) => {
+                    const stepType = step.type || 'WizardStep';
                     const Component = getComponent(step.type);
                     if (!Component) {
                         throw new Error(`no component matching the step type: ${step.type}`);
