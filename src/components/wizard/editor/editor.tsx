@@ -33,7 +33,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                 {steps.length > 0 && (
                     <div data-sb-field-path=".steps">
                         {steps.map((step, index) => {
-                            const stepType = step.type || 'WizardFlow'; // TODO open task - type not stored by studio
+                            const stepType = step.type || 'WizardStep'; // TODO open task - type not stored by studio
                             const Component = getComponent(stepType);
                             if (!Component) {
                                 throw new Error(
