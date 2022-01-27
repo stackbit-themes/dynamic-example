@@ -55,7 +55,6 @@ export default function WizardStep(props) {
                                         index={index}
                                         controlState={controlStates[index]}
                                         onValueChange={handleControlValueChange}
-                                        data-sb-field-path={`.controls.${index}`}
                                         {...control}
                                     />
                                 </div>
