@@ -6,35 +6,51 @@ import {
     buildInitialState,
     OnControlValueChange,
     controlStateBuilders,
-    WizardControlState
+    WizardControlState,
+    WizardControlValue,
+    WizardControlComponent
 } from './controls/types';
+import { WizardControlModel } from '../../utils/model-interfaces';
+import { WizardStepProps } from './types';
 
-export default function WizardStep(props) {
-    const controls = props.controls || [];
+export default function WizardStep(props: WizardStepProps) {
+    const controls: WizardControlModel[] = props.controls || [];
     const [controlStates, setControlStates] = React.useState<WizardControlState[]>(
         controls.map((control) => {
             return buildInitialState(control);
         })
     );
 
-    const handleControlValueChange: OnControlValueChange = (control, index, newValue) => {
-        let newState = Object.assign({}, controlStates);
-        newState[index] = controlStateBuilders[control.type](control, newValue);
+    const onControlValueChange: OnControlValueChange = (control, controlIndex, newValue) => {
+        let newState: WizardControlState[] = controlStates.map((o, i) => {
+            return i === controlIndex
+                ? controlStateBuilders[control.type](control, newValue)
+                : { ...o };
+        });
         setControlStates(newState);
     };
 
-    function allValuesValid(): boolean {
-        for (const [, controlState] of Object.entries(controlStates)) {
-            if (!controlState.valid) {
-                return false;
-            }
+    // Send updated variable values to parent (doesn't cause re-render)
+    function sendVariablesToParent() {
+        if (props.onVarsChange) {
+            let vars: Record<string, WizardControlValue> = {};
+            controls.forEach((control, index) => {
+                vars[control.variableName] = controlStates[index].value;
+            });
+            props.onVarsChange(vars);
         }
-        return true;
     }
-    React.useEffect(() => {
+
+    function sendValidityToParent() {
         if (props.onValidityChange) {
-            props.onValidityChange(allValuesValid());
+            const allValuesValid = controlStates.every((o) => o.valid);
+            props.onValidityChange(allValuesValid);
         }
+    }
+
+    React.useEffect(() => {
+        sendVariablesToParent();
+        sendValidityToParent();
     });
 
     return (
@@ -43,33 +59,48 @@ export default function WizardStep(props) {
             {...getDataAttrs(props)}
         >
             <div className="card-body">
-                <h2 className="card-title" data-sb-field-path=".title">
-                    {props.title}
-                </h2>
-                <Markdown className="mb-5" data-sb-field-path=".description">
-                    {props.description}
-                </Markdown>
-                {props.controls.length > 0 && (
-                    <div data-sb-field-path=".controls">
-                        {props.controls.map((control, index) => {
-                            const Component = getComponent(control.type);
-                            if (!Component) {
-                                throw new Error(`no component for control type: ${control.type}`);
-                            }
-                            return (
-                                <div key={index} className="mt-4" data-sb-field-path={`.${index}`}>
-                                    <Component
-                                        index={index}
-                                        controlState={controlStates[index]}
-                                        onValueChange={handleControlValueChange}
-                                        {...control}
-                                    />
-                                </div>
-                            );
-                        })}
-                    </div>
-                )}
+                {renderHeader(props)}
+                {props.controls && renderControls(props, controlStates, onControlValueChange)}
             </div>
+        </div>
+    );
+}
+
+function renderHeader(props: WizardStepProps) {
+    return (
+        <div>
+            <h2 className="card-title" data-sb-field-path=".title">
+                {props.title}
+            </h2>
+            <Markdown className="mb-5" data-sb-field-path=".description">
+                {props.description}
+            </Markdown>
+        </div>
+    );
+}
+
+function renderControls(
+    props: WizardStepProps,
+    controlStates: WizardControlState[],
+    onValueChange: OnControlValueChange
+) {
+    return (
+        <div data-sb-field-path=".controls">
+            {props.controls.map((control, index) => {
+                const Control = getComponent(control.type) as WizardControlComponent;
+                if (!Control) throw new Error(`no component for control type: ${control.type}`);
+
+                return (
+                    <div key={index} className="mt-4" data-sb-field-path={`.${index}`}>
+                        <Control
+                            index={index}
+                            controlState={controlStates[index]}
+                            onValueChange={onValueChange}
+                            {...control}
+                        />
+                    </div>
+                );
+            })}
         </div>
     );
 }

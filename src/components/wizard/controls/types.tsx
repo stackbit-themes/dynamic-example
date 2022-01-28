@@ -1,4 +1,5 @@
-import { WizardControlModel } from "../../../utils/model-interfaces";
+import * as React from 'react';
+import { WizardControlModel } from '../../../utils/model-interfaces';
 
 export type WizardControlValue = string | number | string[] | null;
 export interface WizardControlState {
@@ -8,10 +9,13 @@ export interface WizardControlState {
 }
 
 export type ControlValueInitializer = (control: WizardControlModel) => WizardControlValue;
-export let controlValueInitializers: Record<string, ControlValueInitializer> = {}
+export let controlValueInitializers: Record<string, ControlValueInitializer> = {};
 
-export type ControlStateBuilder = (control: WizardControlModel, newValue: WizardControlValue) => WizardControlState;
-export let controlStateBuilders: Record<string, ControlStateBuilder> = {}
+export type ControlStateBuilder = (
+    control: WizardControlModel,
+    newValue: WizardControlValue
+) => WizardControlState;
+export let controlStateBuilders: Record<string, ControlStateBuilder> = {};
 
 export function buildInitialState(control: WizardControlModel): WizardControlState {
     //console.log(control); // TODO remove
@@ -21,10 +25,16 @@ export function buildInitialState(control: WizardControlModel): WizardControlSta
     return initialStatus;
 }
 
-export type OnControlValueChange = (control: WizardControlModel, index: number, newValue: WizardControlValue) => void;
+export type OnControlValueChange = (
+    control: WizardControlModel,
+    index: number,
+    newValue: WizardControlValue
+) => void;
 
 export interface WizardControlProps extends WizardControlModel {
     index: number;
     controlState: WizardControlState;
     onValueChange: OnControlValueChange;
 }
+
+export type WizardControlComponent = (props: WizardControlProps) => JSX.Element;

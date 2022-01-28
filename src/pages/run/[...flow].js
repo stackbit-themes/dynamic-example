@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { resolveStaticProps } from '../../utils/static-props-resolvers';
 import { getComponent } from '../../components/components-registry';
@@ -7,12 +7,23 @@ import DefaultBaseLayout from '../../components/keep-and-modify/layouts/DefaultB
 export default function RunFlowPage(props) {
     const [currStep, setCurrStep] = React.useState(0);
     const [currStepIsValid, setCurrStepIsValid] = React.useState(false);
+    const variableValues = React.useRef({});
     const flow = props.page;
     const steps = flow.steps || [];
 
-    // Optimize? prevent re-render of this flow and all steps on validity change of step,
-    // using https://hookstate.js.org/docs/scoped-state
+    function handleVarsChange(stepVariableValues) {
+        //console.log('Got vars:', stepVars);
+        variableValues.current = { ...variableValues.current, ...stepVariableValues };
+        console.log('Updated vars:', variableValues.current);
+    }
+
+    useEffect(() => {
+        console.log('Rendered flow');
+    });
+
     function handleStepValidityChange(isValid) {
+        console.log('Step validity reported');
+        if (isValid != currStepIsValid) console.log('Step validity changed:', isValid);
         setCurrStepIsValid(isValid);
     }
 
@@ -27,7 +38,7 @@ export default function RunFlowPage(props) {
             setCurrStep(currStep + 1);
             setCurrStepIsValid(false); // The step component will update this
         } else {
-            console.log('Finished!'); // TBD redirect to ...
+            console.log('Finished!', variableValues); // TBD redirect to ...
         }
     }
 
@@ -62,6 +73,7 @@ export default function RunFlowPage(props) {
                                 {...step}
                                 data-sb-field-path={`steps.${index}`}
                                 onValidityChange={isCurrStep ? handleStepValidityChange : null}
+                                onVarsChange={isCurrStep ? handleVarsChange : null}
                             />
                         </div>
                     );

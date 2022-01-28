@@ -12,7 +12,7 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     const v = newValue as string;
 
     if (v) {
-        if (v.length >= control.minLength) {
+        if (!control.minLength || v.length >= control.minLength) {
             return { valid: true, value: v };
         } else {
             return {
