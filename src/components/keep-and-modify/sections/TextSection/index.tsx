@@ -2,8 +2,8 @@ import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 
-import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
-import { getDataAttrs } from '../../../utils/get-data-attrs';
+import { mapStylesToClassNames as mapStyles } from '../../../../utils/map-styles-to-class-names';
+import { getDataAttrs } from '../../../../utils/get-data-attrs';
 
 export default function TextSection(props) {
     const cssId = props.elementId || null;
@@ -28,15 +28,27 @@ export default function TextSection(props) {
                 sectionStyles.margin,
                 sectionStyles.padding || 'py-12 px-4',
                 sectionStyles.borderColor,
-                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : 'border-none',
-                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null
+                sectionStyles.borderStyle
+                    ? mapStyles({ borderStyle: sectionStyles.borderStyle })
+                    : 'border-none',
+                sectionStyles.borderRadius
+                    ? mapStyles({ borderRadius: sectionStyles.borderRadius })
+                    : null
             )}
             style={{
                 borderWidth: sectionStyles.borderWidth ? `${sectionStyles.borderWidth}px` : null
             }}
         >
-            <div className={classNames('flex', 'w-full', mapStyles({ justifyContent: sectionJustifyContent }))}>
-                <div className={classNames('w-full', mapMaxWidthStyles(sectionWidth))}>{textBody(props)}</div>
+            <div
+                className={classNames(
+                    'flex',
+                    'w-full',
+                    mapStyles({ justifyContent: sectionJustifyContent })
+                )}
+            >
+                <div className={classNames('w-full', mapMaxWidthStyles(sectionWidth))}>
+                    {textBody(props)}
+                </div>
             </div>
         </div>
     );
@@ -47,13 +59,21 @@ function textBody(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2
+                    className={classNames(styles.title ? mapStyles(styles.title) : null)}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
                 <p
-                    className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-2': props.title })}
+                    className={classNames(
+                        'text-xl',
+                        'sm:text-2xl',
+                        styles.subtitle ? mapStyles(styles.subtitle) : null,
+                        { 'mt-2': props.title }
+                    )}
                     data-sb-field-path=".subtitle"
                 >
                     {props.subtitle}
@@ -62,7 +82,12 @@ function textBody(props) {
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', 'sm:text-lg', styles.text ? mapStyles(styles.text) : null, { 'mt-6': props.title || props.subtitle })}
+                    className={classNames(
+                        'sb-markdown',
+                        'sm:text-lg',
+                        styles.text ? mapStyles(styles.text) : null,
+                        { 'mt-6': props.title || props.subtitle }
+                    )}
                     data-sb-field-path=".text"
                 >
                     {props.text}

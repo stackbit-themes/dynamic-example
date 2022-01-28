@@ -1,9 +1,4 @@
 import * as React from 'react';
-import Markdown from 'markdown-to-jsx';
-import classNames from 'classnames';
-
-import { Social, Action, Link } from '../../atoms';
-import ImageBlock from '../../molecules/ImageBlock';
 
 export default function Footer(props) {
     return (
@@ -52,9 +47,7 @@ export default function Footer(props) {
                 </div>
             </div>
             <div>
-                <p>
-                    Copyright © 2021 - All right reserved by ACME Industries Ltd
-                </p>
+                <p>Copyright © 2021 - All right reserved by ACME Industries Ltd</p>
             </div>
         </footer>
     );
