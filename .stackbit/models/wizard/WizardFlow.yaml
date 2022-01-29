@@ -1,5 +1,7 @@
 name: WizardFlow
+layout: WizardFlow
 label: Wizard Flow
+hideContent: true
 fields:
   - type: string
     name: title

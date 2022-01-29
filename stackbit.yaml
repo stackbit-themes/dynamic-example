@@ -22,7 +22,9 @@ contentModels:
     urlPath: '/blog/{slug}'
     newFilePath: 'blog/{slug}.md'
   WizardFlow:
-    newFilePath: 'flows/{slug}.yaml'
+    isPage: true
+    urlPath: '/flows/{slug}'
+    newFilePath: 'flows/{slug}.md'
   Person:
     newFilePath: 'people/{slug}.json'
 modelsSource:

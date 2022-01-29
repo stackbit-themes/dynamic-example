@@ -10,12 +10,11 @@ export default function Page(props: GenericPageComponentProps) {
     const action = urlParts[urlParts.length - 1];
 
     let Component: GenericPageComponent;
-    if (action == 'edit') {
-        Component = WizardFlowEditor;
-    } else if (action == 'run') {
+    Component = WizardFlowEditor;
+    if (props.page.__metadata.urlPath.match(/^\/flows\/\w+\/run\/?$/)) {
         Component = WizardFlowRunner;
     } else {
-        throw new Error(`Unknown action for URL ${props.page.__metadata.urlPath}`);
+        Component = WizardFlowEditor;
     }
 
     return (

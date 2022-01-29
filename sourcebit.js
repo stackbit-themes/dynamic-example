@@ -47,13 +47,16 @@ module.exports = {
                         const urlPath = urlPathFromFilePath(relativePath);
 
                         if (obj.__metadata.sourceName === 'pages') {
-                            paths.push({ urlPath });
-                        } else if (obj.__metadata.modelName === 'WizardFlow') {
-                            paths.push(
-                                { urlPath: urlPath + '/edit', routeHandler: 'flows' },
-                                { urlPath: urlPath + '/run', routeHandler: 'flows' }
-                            );
+                            if (obj.__metadata.modelName === 'WizardFlow') {
+                                paths.push(
+                                    { urlPath: urlPath, routeHandler: 'flows' },
+                                    { urlPath: urlPath + '/run', routeHandler: 'flows' }
+                                );
+                            } else {
+                                paths.push({ urlPath });
+                            }
                         }
+
                         return paths.map((metadata) => {
                             metadata = { routeHandler: 'default', ...metadata };
                             return addMetadata(obj, metadata);

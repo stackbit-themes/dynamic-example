@@ -1,5 +1,6 @@
+---
 title: Flow Numero Uno
-type: WizardFlow
+layout: WizardFlow
 steps:
   - type: WizardStep
     title: First Card
@@ -56,3 +57,4 @@ steps:
         required: false
         label: 'Any last words, chap?'
         variableName: nickname3
+---
