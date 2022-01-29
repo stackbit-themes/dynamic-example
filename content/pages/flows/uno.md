@@ -12,7 +12,7 @@ steps:
       - type: WizardTextControl
         required: true
         label: How shall we call you?
-        variableName: nickame2
+        variableName: nickname2
         minLength: 3
       - type: WizardTextControl
         required: false
