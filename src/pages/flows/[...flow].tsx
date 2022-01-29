@@ -4,8 +4,9 @@ import { GenericPageComponentProps, GenericPageComponent } from '../../utils/mod
 import { allPagePaths, staticPropsBySlug } from '../../utils/common/props-helper';
 import WizardFlowEditor from '../../components/wizard/editor/editor';
 import WizardFlowRunner from '../../components/wizard/runner/runner';
+import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 
-export default function Page(props: GenericPageComponentProps) {
+function Page(props: GenericPageComponentProps) {
     const urlParts = props.page.__metadata.urlPath.split('/');
     const action = urlParts[urlParts.length - 1];
 
@@ -33,3 +34,5 @@ export async function getStaticProps({ params }) {
     const slug = ['flows', ...params.flow];
     return await staticPropsBySlug(slug);
 }
+
+export default withRemoteDataUpdates(Page);
