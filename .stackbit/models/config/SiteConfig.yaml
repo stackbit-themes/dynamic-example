@@ -1,0 +1,12 @@
+name: SiteConfig
+label: Site configuration
+singleInstance: true
+type: data
+fields:
+  - type: image
+    name: favicon
+    label: Favicon
+  - type: model
+    name: header
+    label: Header configuration
+    models: [Header]

@@ -1,4 +1,4 @@
-import { WizardFlowModel } from '../../../utils/model-interfaces';
+import { WizardFlowModel } from '../../../utils/model-types';
 
 export function validateFlowDefinition(flow: WizardFlowModel): string[] {
     let errors: string[] = [];

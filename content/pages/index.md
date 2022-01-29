@@ -1,5 +1,5 @@
 ---
 title: Home
-layout: PageLayout
+layout: GeneralPage
 sections: []
 ---

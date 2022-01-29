@@ -1,20 +1,18 @@
 import * as React from 'react';
-import { SiteConfigModel, WizardFlowModel } from '../../../utils/model-interfaces';
+import { SiteConfigModel, WizardFlowModel } from '../../../utils/model-types';
 import { getComponent } from '../../components-registry';
-import DefaultBaseLayout from '../../keep-and-modify/layouts/DefaultBaseLayout';
 import { FlowValidAlert, FlowValidationAlerts } from './alerts';
 import { validateFlowDefinition } from './validation';
-import link from 'next/link';
 
 export default function WizardFlowEditor(props: { page: WizardFlowModel; site: SiteConfigModel }) {
     const flow = props.page;
     const steps = flow.steps || [];
     const selfUrl = flow.__metadata.urlPath;
+    const editUrl = selfUrl.replace(/\/edit$/i, '/run'); //?to=${selfUrl}?store=false?x=true
 
     const flowDefinitionErrors = validateFlowDefinition(flow);
-    //?to=${selfUrl}?store=false?x=true
     return (
-        <DefaultBaseLayout page={flow} site={props.site}>
+        <>
             <main id="main" className="sb-layout sb-page-layout">
                 {flow.title && (
                     <div data-sb-field-path="title" className="text-6xl p-8">
@@ -25,7 +23,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                     <FlowValidAlert
                         action={{
                             label: 'Run',
-                            url: `/run/${selfUrl}`
+                            url: editUrl
                         }}
                     />
                 ) : (
@@ -51,6 +49,6 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                     </div>
                 )}
             </main>
-        </DefaultBaseLayout>
+        </>
     );
 }

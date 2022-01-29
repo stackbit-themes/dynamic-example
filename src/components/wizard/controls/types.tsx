@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { WizardControlModel } from '../../../utils/model-interfaces';
+import { WizardControlModel } from '../../../utils/model-types';
 
 export type WizardControlValue = string | number | string[] | null;
 export interface WizardControlState {

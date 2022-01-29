@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
@@ -55,12 +56,9 @@ export function FlowValidAlert(props: { action?: { label: string; url: string } 
             </div>
             {props && (
                 <div className="flex-none">
-                    <button
-                        className="btn btn-sm btn-primary"
-                        onClick={() => router.push(props.action.url)}
-                    >
-                        {props.action.label}
-                    </button>
+                    <Link href={props.action.url}>
+                        <a>{props.action.label}</a>
+                    </Link>
                 </div>
             )}
         </div>

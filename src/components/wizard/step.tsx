@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../components-registry';
-import { getDataAttrs } from '../../utils/get-data-attrs';
+import { getDataAttrs } from '../../utils/common/get-data-attrs';
 import {
     buildInitialState,
     OnControlValueChange,
@@ -10,7 +10,7 @@ import {
     WizardControlValue,
     WizardControlComponent
 } from './controls/types';
-import { WizardControlModel } from '../../utils/model-interfaces';
+import { WizardControlModel } from '../../utils/model-types';
 import { WizardStepProps } from './types';
 
 export default function WizardStep(props: WizardStepProps) {

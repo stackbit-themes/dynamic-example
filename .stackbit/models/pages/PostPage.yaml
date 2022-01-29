@@ -1,0 +1,29 @@
+name: PostPage
+layout: PostPage
+label: Post Page
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: A New Blog Post
+    required: true
+  - type: date
+    name: date
+    label: Date
+    required: true
+  - type: reference
+    name: author
+    label: Author
+    models:
+      - Person
+  - type: string
+    name: excerpt
+    label: Excerpt
+    default: Nunc rutrum felis dui, ut consequat sapien scelerisque vel. Integer condimentum dignissim justo vel faucibus.
+  - type: list
+    name: footerSections
+    label: Sections
+    items:
+      type: model
+      groups:
+        - sectionComponents

@@ -1,0 +1,10 @@
+{
+    "type": "SiteConfig",
+    "favicon": "/images/favicon.svg",
+    "header": {
+        "title": "Dynamism",
+        "primaryLinks": [],
+        "secondaryLinks": [],
+        "logo": "/images/logo.svg"
+    }
+}

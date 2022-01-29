@@ -1,0 +1,13 @@
+name: ThemeConfig
+label: Theme configuration
+singleInstance: true
+type: data
+fields:
+  - type: enum
+    name: theme
+    label: Theme
+    options:
+      - label: Light
+        value: light
+      - label: Dark
+        value: dark

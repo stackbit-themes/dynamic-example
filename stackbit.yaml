@@ -11,23 +11,20 @@ dataDir: content/data
 pagesDir: content/pages
 pageLayoutKey: layout
 objectTypeKey: type
-styleObjectModelName: ThemeStyle
+styleObjectModelName: ThemeConfig
 contentModels:
-  PageLayout:
+  GeneralPage:
     isPage: true
     urlPath: '/{slug}'
     newFilePath: '{slug}.md'
-  WizardFlow:
-    isPage: true
-    urlPath: '/flows/{slug}'
-    newFilePath: 'flows/{slug}.md'
-  PostLayout:
+  PostPage:
     isPage: true
     urlPath: '/blog/{slug}'
     newFilePath: 'blog/{slug}.md'
+  WizardFlow:
+    newFilePath: 'flows/{slug}.yaml'
   Person:
-    newFilePath: 'team/{slug}.json'
-
+    newFilePath: 'people/{slug}.json'
 modelsSource:
   type: files
   modelDirs:

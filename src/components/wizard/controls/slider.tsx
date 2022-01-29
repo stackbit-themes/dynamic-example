@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { WizardControlProps, controlValueInitializers, controlStateBuilders } from './types';
-import { WizardSliderControlModel } from '../../../utils/model-interfaces';
+import { WizardSliderControlModel } from '../../../utils/model-types';
 
 const MODEL_NAME = 'WizardSliderControl';
 
