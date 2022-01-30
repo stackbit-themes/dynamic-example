@@ -6,6 +6,7 @@ fields:
   - type: enum
     name: theme
     label: Theme
+    required: true
     options:
       - label: Light
         value: light

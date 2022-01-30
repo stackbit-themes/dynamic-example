@@ -1,3 +1,4 @@
 {
-    "type": "ThemeConfig"
+    "type": "ThemeConfig",
+    "theme": "light"
 }
