@@ -9,7 +9,14 @@
 **TBD** Write details of how to generate and make it trusted on the mac (at least by Safari?)
 This differs a bit in current OS versions vs. existing articles online.
 
-### Creating a GitHub App for enabling sign-in with GitHub
+### Enabling sign-in with Google
+
+**TBD** Document creating the OAuth Consent Screen + OAuth 2.0 Client ID in Credentials.
+Setting Origin URI and Redirect URI.
+
+### Enabling sign-in with GitHub
+
+You need to create a new GitHub App:
 
 1. Go to https://github.com/settings/apps and click "New GitHub App"
 1. Set the **GitHub App Name** to whatever you want, and set the **Homepage URL** to the root of your live website (even if it's not the final production deployment - it just needs to be a publicly-accessible URL).
