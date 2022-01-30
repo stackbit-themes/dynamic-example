@@ -27,9 +27,14 @@ export interface WizardFlowModel extends ContentObjectModel {
     steps?: WizardStepModel[];
 }
 
+export interface HeaderModel extends ContentObjectModel {
+    // TODO fill this out
+}
+
 export interface SiteConfigModel extends ContentObjectModel {
     // TODO fill this out
     favicon?: string
+    header?: HeaderModel;
 }
 
 export interface GeneralPageModel extends ContentObjectModel {
@@ -47,4 +52,5 @@ export interface PageComponentProps {
 export interface GenericPageComponentProps extends PageComponentProps { 
     page: ContentObjectModel;
 }
+
 export type GenericPageComponent = (props: GenericPageComponentProps) => JSX.Element;

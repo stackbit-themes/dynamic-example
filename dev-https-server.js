@@ -12,6 +12,9 @@ const fs = require('fs');
 const dev = process.env.NODE_ENV !== 'production';
 if (!dev) throw new Error('This script is not meant for production');
 
+/* Needed locally when using custom sign-in page */
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const port = 3000;
 const serverUrl = `https://localhost:${port}`;
 
