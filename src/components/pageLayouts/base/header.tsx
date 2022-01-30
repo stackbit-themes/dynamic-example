@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
+
 // TODO work on this
 export default function Header(props) {
+    const { data: session } = useSession();
+    if (session) console.log({ session });
     return (
         <>
             <div className="navbar mb-2 shadow-lg bg-blue-500 text-neutral-content">
@@ -23,7 +27,7 @@ export default function Header(props) {
                     </button>
                 </div>
                 <div className="flex-1 hidden px-2 mx-2 lg:flex">
-                    <span className="text-lg font-bold">Stackbit Examples</span>
+                    <span className="text-lg font-bold">Stackbit - Dynamic Examples</span>
                 </div>
                 <div className="flex-1 lg:flex-none">
                     <div className="form-control">
@@ -48,11 +52,21 @@ export default function Header(props) {
                     </button>
                 </div>
                 <div className="flex-none">
-                    <div className="avatar">
-                        <div className="rounded-full w-10 h-10 m-1">
-                            <img src="https://i.pravatar.cc/500?img=32" alt="Profile picture" />
-                        </div>
-                    </div>
+                    {session ? (
+                        <>
+                            <div className="mr-6">{session.user.name.split(' ')[0]}</div>
+                            <button onClick={() => signOut()}>Sign out</button>
+                            <div className="avatar">
+                                <div className="rounded-full w-10 h-10 m-1">
+                                    <img src={session.user.image} alt="Profile picture" />
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <button onClick={() => signIn()}>Sign in</button>
+                        </>
+                    )}
                 </div>
             </div>
         </>

@@ -30,7 +30,10 @@ function flattenMarkdownData() {
     };
 }
 
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
     urlPathFromFilePath,
-    flattenMarkdownData
+    flattenMarkdownData,
+    isDev
 };

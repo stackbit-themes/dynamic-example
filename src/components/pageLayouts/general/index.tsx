@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 import BaseLayout from '../base';
 import { getComponent } from '../../components-registry';
 import { GeneralPageModel, SiteConfigModel } from '../../../utils/model-types';
+import { isDev } from '../../../utils/common/page-utils';
 
 export default function GeneralPageLayout(props: {
     page: GeneralPageModel;
@@ -36,9 +38,14 @@ export default function GeneralPageLayout(props: {
                             );
                         })}
                     </div>
-                ) : (
-                    <div className="flex justify-center text-4xl m-8">Add some sections...</div>
-                )}
+                ) : isDev ? (
+                    <div className="flex flex-col text-3xl m-8">
+                        <div className="flex justify-center mb-8">No sections (yet)</div>
+                        <div className="flex justify-center">
+                            <img src="/images/empty-battery.svg" width="80" alt="No sections" />
+                        </div>
+                    </div>
+                ) : null}
             </main>
         </BaseLayout>
     );

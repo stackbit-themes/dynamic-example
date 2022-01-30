@@ -1,7 +1,10 @@
 const path = require('path');
-const { flattenMarkdownData, urlPathFromFilePath } = require('./src/utils/common/page-utils');
+const {
+    flattenMarkdownData,
+    urlPathFromFilePath,
+    isDev
+} = require('./src/utils/common/page-utils');
 const { resolveReferenceFields } = require('./src/utils/common/data-utils');
-const isDev = process.env.NODE_ENV === 'development';
 
 // TODO separate this to common package and project-specific config
 module.exports = {
