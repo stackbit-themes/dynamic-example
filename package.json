@@ -7,7 +7,7 @@
     },
     "scripts": {
         "dev": "next dev",
-        "dev-https": "node https-server.js",
+        "dev-https": "node dev-https-server.js",
         "build": "next build",
         "start": "next start",
         "validate": "stackbit validate",
