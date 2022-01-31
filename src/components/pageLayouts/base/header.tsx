@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function Header(props: HeaderModel) {
     return (
         <>
-            <div className="navbar mb-2 shadow-lg bg-blue-500 text-neutral-content">
+            <div className="navbar mb-2 shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-neutral-content">
                 <div className="flex-none hidden lg:flex">
                     <button className="btn btn-square btn-ghost">
                         <HamburgerIcon />
@@ -44,26 +44,49 @@ function SessionControls() {
     if (session) console.log('Session', session);
     return session ? (
         <>
-            <div className="mr-6">{session.user.name}</div>
-            <button onClick={() => signOut()}>Sign out</button>
-            <div className="avatar">
-                <div className="rounded-full w-10 h-10 m-1">
-                    <Link href="/user/">
-                        <a>
-                            <img
-                                src={session.user.image}
-                                referrerPolicy="no-referrer"
-                                alt="Profile picture"
-                            />
-                        </a>
-                    </Link>
+            <div className="mr-2">{session.user.name}</div>
+
+            <div className="dropdown dropdown-hover dropdown-end">
+                <div tabIndex={0}>
+                    <UserAvatar session={session} />
                 </div>
+                <ul
+                    tabIndex={0}
+                    className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-36 !text-neutral"
+                >
+                    <li>
+                        <Link href="/user/">
+                            <a>User profile</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <a onClick={() => signOut()}>Sign out</a>
+                    </li>
+                </ul>
             </div>
         </>
     ) : (
         <>
             <button onClick={() => signIn()}>Sign in</button>
         </>
+    );
+}
+
+function UserAvatar({ session }) {
+    return (
+        <div className="avatar">
+            <div className="rounded-box w-10 h-10 m-1">
+                <Link href="/user/">
+                    <a>
+                        <img
+                            src={session.user.image}
+                            referrerPolicy="no-referrer"
+                            alt="Profile picture"
+                        />
+                    </a>
+                </Link>
+            </div>
+        </div>
     );
 }
 

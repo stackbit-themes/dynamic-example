@@ -40,7 +40,7 @@ function UserProfile({ session, status }) {
     if (isClientSide && loading) {
         return null;
     } else if (!apiUserResponse || !apiUserResponse.success || !apiUserResponse.user) {
-        return <div>apiUserResponse is: {JSON.stringify(apiUserResponse)}</div>;
+        return null;
     } else {
         return (
             <div className="flex justify-center mt-6 mb-2">

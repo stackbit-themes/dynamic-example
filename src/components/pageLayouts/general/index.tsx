@@ -39,10 +39,12 @@ export default function GeneralPageLayout(props: {
                         })}
                     </div>
                 ) : isDev ? (
-                    <div className="flex flex-col text-3xl m-8">
-                        <div className="flex justify-center mb-8">No sections (yet)</div>
+                    <div className="flex flex-col m-24 gap-2">
                         <div className="flex justify-center">
-                            <img src="/images/empty-battery.svg" width="80" alt="No sections" />
+                            <img src="/images/cactus.png" width="80" alt="No sections" />
+                        </div>
+                        <div className="flex justify-center font-bold text-3xl text-base-300">
+                            Add some sections here
                         </div>
                     </div>
                 ) : null}
