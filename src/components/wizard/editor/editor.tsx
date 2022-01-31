@@ -8,7 +8,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
     const flow = props.page;
     const steps = flow.steps || [];
     const selfUrl = flow.__metadata.urlPath;
-    const editUrl = `${selfUrl}/run/`; //?to=${selfUrl}?store=false?x=true
+    const runFlowUrl = `${selfUrl}/run/?to={selfUrl}`;
 
     const flowDefinitionErrors = validateFlowDefinition(flow);
     return (
@@ -23,7 +23,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
                     <FlowValidAlert
                         action={{
                             label: 'Run',
-                            url: editUrl
+                            url: runFlowUrl
                         }}
                     />
                 ) : (

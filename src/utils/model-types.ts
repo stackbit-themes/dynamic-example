@@ -50,6 +50,7 @@ export interface UserProfilePageModel extends ContentObjectModel {
 
 export interface PageComponentProps {
     site: SiteConfigModel;
+    flowIds?: string[];
     [k: string]: any;
 }
 

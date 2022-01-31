@@ -27,8 +27,11 @@ module.exports = {
                 liveUpdate: isDev,
                 flattenAssetUrls: true,
                 commonProps: (objects) => {
-                    const site = objects.find((page) => page.__metadata.modelName === 'SiteConfig');
-                    return { site };
+                    const site = objects.find((o) => o.__metadata.modelName === 'SiteConfig');
+                    const flows = objects.filter((o) => o.__metadata.modelName === 'WizardFlow');
+                    const flowIds = flows.map((o) => o.__metadata.id);
+                    console.log('commonProps flowNames:', flowIds);
+                    return { site, flowIds };
                 },
                 pages: (objects) => {
                     function addMetadata(obj, addedMetadata) {

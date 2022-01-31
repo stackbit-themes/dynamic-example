@@ -2,9 +2,9 @@ import { signIn } from 'next-auth/react';
 
 export default function AccessDenied() {
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center m-20">
             <div className="alert alert-error">
-                <div className="flex-1">
+                <div className="flex-1 items-center text-center">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

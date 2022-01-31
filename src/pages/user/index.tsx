@@ -6,14 +6,21 @@ import { ApiUserData, ApiUserResponse } from '../../utils/api-types';
 import BaseLayout from '../../components/pageLayouts/base';
 import { UserProfilePageModel, SiteConfigModel } from '../../utils/model-types';
 import { staticPropsBySlug } from '../../utils/common/props-helper';
+import Link from 'next/link';
+import { WizardControlValue } from '../../components/wizard/controls/types';
+import { VariableValuesMap } from '../../components/wizard/types';
 
 function isClientSide() {
     return typeof window !== 'undefined';
 }
 
-export default function Page(props: { page: UserProfilePageModel; site: SiteConfigModel }) {
+export default function Page(props: {
+    page: UserProfilePageModel;
+    site: SiteConfigModel;
+    flowIds?: string;
+}) {
     const { data: session, status } = useSession();
-
+    console.log('flowIds: ', props.flowIds); //TODO
     return (
         <BaseLayout page={props.page} site={props.site}>
             {session ? <UserProfile session={session} status={status} /> : <AccessDenied />};
@@ -27,7 +34,7 @@ function UserProfile({ session, status }) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch('/api/user');
+            const res = await fetch('/api/userInfo');
             const json = await res.json();
             if (json) {
                 setApiUserResponse(json);
@@ -74,15 +81,52 @@ function UserProfileCard(props: { userData: ApiUserData }) {
                             I do things, and sometimes they are good.
                         </div>
                     </div>
-                    <div className="mt-2 text-center">
-                        <div className="badge badge-accent mr-1">Sushi</div>
-                        <div className="badge badge-accent mr-1">Clean Code</div>
-                        <div className="badge badge-accent">More Cliches</div>
-                    </div>
                 </div>
-                <button className="btn btn-sm">CLOSE DOOR</button>
+                {props.userData.flowData ? (
+                    <>
+                        <UserFlowData userData={props.userData} />
+                        <Link href="/flows/uno/run?to=/user">
+                            <a>
+                                <button className="btn btn-sm">Onboard again</button>
+                            </a>
+                        </Link>
+                    </>
+                ) : (
+                    <Link href="/flows/uno/run?to=/user">
+                        <a>
+                            <button className="btn btn-sm">Onboard me</button>
+                        </a>
+                    </Link>
+                )}
             </div>
         </>
+    );
+}
+
+// TODO get flow definition for max value, labels, etc.
+function UserFlowData(props: { userData: ApiUserData }) {
+    console.log(props.userData.flowData);
+    return (
+        <>
+            <div className="text-md font-extrabold">My answers to the flow</div>
+            <UserFlowVariables variables={props.userData.flowData} />
+        </>
+    );
+}
+
+function UserFlowVariables(props: { variables: VariableValuesMap; onlyType?: string }) {
+    return (
+        <div className="flex flex-col text-center gap-2">
+            {Object.entries(props.variables).map((o, index) => {
+                const [varName, varValue] = o;
+                const text = `${varName}: ${varValue}`;
+                return (
+                    <div key={varName} className="flex justify-center">
+                        <div className="badge badge-accent badge-lg">{text}</div>
+                    </div>
+                );
+            })}
+        </div>
     );
 }
 

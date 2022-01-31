@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { WizardControlModel } from '../../../utils/model-types';
 
-export type WizardControlValue = string | number | string[] | null;
+export type WizardControlValue = string | number | boolean | string[] | null;
 export interface WizardControlState {
     valid: boolean;
     value: WizardControlValue;

@@ -2,12 +2,28 @@ import React, { useEffect } from 'react';
 import { getComponent } from '../../../components/components-registry';
 import { PageComponentProps, WizardFlowModel } from '../../../utils/model-types';
 import { VariableValuesMap, WizardStepComponent } from '../../../components/wizard/types';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 interface RunFlowPageProps extends PageComponentProps {
     page: WizardFlowModel;
 }
 
+async function storeUserFlowData(variableValues: VariableValuesMap) {
+    console.log('storeUserFlowData', variableValues);
+    await fetch('/api/userFlow', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(variableValues)
+    });
+}
+
 export default function WizardFlowRunner(props: RunFlowPageProps) {
+    const { data: session } = useSession();
+    const router = useRouter();
+
     const [currStep, setCurrStep] = React.useState(0);
     const [currStepIsValid, setCurrStepIsValid] = React.useState(false);
     const variableValues = React.useRef<VariableValuesMap>({});
@@ -34,12 +50,23 @@ export default function WizardFlowRunner(props: RunFlowPageProps) {
     }
 
     const isLastStep = currStep === steps.length - 1;
-    function nextStep() {
+    async function nextStep() {
         if (!isLastStep) {
             setCurrStep(currStep + 1);
-            setCurrStepIsValid(false); // The step component will update this
+            setCurrStepIsValid(false); // The step component should update this in its next useEffect()
         } else {
-            console.log('Finished!', variableValues); // TBD redirect to ...
+            console.log('Finished flow successfully!', variableValues.current);
+            if (session) {
+                // TODO support store=(true|false) query param?
+                await storeUserFlowData(variableValues.current);
+            }
+            if (
+                router.query.to &&
+                typeof router.query.to === 'string' &&
+                router.query.to.startsWith('/')
+            ) {
+                router.push(router.query.to as string);
+            }
         }
     }
 
@@ -86,7 +113,13 @@ export default function WizardFlowRunner(props: RunFlowPageProps) {
                         Back
                     </button>
                 )}
-                <button className="btn btn-primary" onClick={nextStep} disabled={!currStepIsValid}>
+                <button
+                    className="btn btn-primary"
+                    onClick={async () => {
+                        await nextStep();
+                    }}
+                    disabled={!currStepIsValid}
+                >
                     {isLastStep ? 'Finish' : 'Next'}
                 </button>
             </div>

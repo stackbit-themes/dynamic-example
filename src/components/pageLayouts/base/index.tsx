@@ -19,7 +19,6 @@ export default function BaseLayout(props: GenericPageComponentProps) {
                 </Head>
                 {site.header && <Header {...site.header} annotationPrefix={siteMeta.id} />}
                 {props.children}
-                <Footer />
             </div>
         </div>
     );
