@@ -38,10 +38,14 @@ export interface SiteConfigModel extends ContentObjectModel {
 }
 
 export interface GeneralPageModel extends ContentObjectModel {
-    // TODO fill this out
+    title: string;
     sections?: any[]
 }
 
+export interface UserProfilePageModel extends ContentObjectModel {
+    title: string;
+    topSections?: any[]
+}
 // TODO refactor to move to common
 
 export interface PageComponentProps {

@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { HeaderModel } from '../../../utils/model-types';
+import Link from 'next/link';
 
 // TODO work on this
 export default function Header(props: HeaderModel) {
@@ -14,7 +15,11 @@ export default function Header(props: HeaderModel) {
                     </button>
                 </div>
                 <div className="flex-1 hidden px-2 mx-2 lg:flex">
-                    <span className="text-lg font-bold">Stackbit Dynamic Example App</span>
+                    <span className="text-lg font-bold">
+                        <Link href="/">
+                            <a>Stackbit Dynamic Example App</a>
+                        </Link>
+                    </span>
                 </div>
                 <div className="flex-1 lg:flex-none">
                     <div className="form-control">
@@ -43,11 +48,15 @@ function SessionControls() {
             <button onClick={() => signOut()}>Sign out</button>
             <div className="avatar">
                 <div className="rounded-full w-10 h-10 m-1">
-                    <img
-                        src={session.user.image}
-                        referrerPolicy="no-referrer"
-                        alt="Profile picture"
-                    />
+                    <Link href="/user/">
+                        <a>
+                            <img
+                                src={session.user.image}
+                                referrerPolicy="no-referrer"
+                                alt="Profile picture"
+                            />
+                        </a>
+                    </Link>
                 </div>
             </div>
         </>

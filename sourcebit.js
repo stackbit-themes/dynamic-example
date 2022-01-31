@@ -55,6 +55,8 @@ module.exports = {
                                     { urlPath: urlPath, routeHandler: 'flows' },
                                     { urlPath: urlPath + '/run', routeHandler: 'flows' }
                                 );
+                            } else if (obj.__metadata.modelName === 'UserProfilePage') {
+                                paths.push({ urlPath: urlPath, routeHandler: 'user' });
                             } else {
                                 paths.push({ urlPath });
                             }
