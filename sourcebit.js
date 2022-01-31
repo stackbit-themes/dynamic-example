@@ -30,7 +30,7 @@ module.exports = {
                     const site = objects.find((o) => o.__metadata.modelName === 'SiteConfig');
                     const flows = objects.filter((o) => o.__metadata.modelName === 'WizardFlow');
                     const flowIds = flows.map((o) => o.__metadata.id);
-                    console.log('commonProps flowNames:', flowIds);
+                    console.log('Found flowIds:', flowIds);
                     return { site, flowIds };
                 },
                 pages: (objects) => {

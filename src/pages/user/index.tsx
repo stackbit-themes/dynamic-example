@@ -59,6 +59,7 @@ function UserProfile({ session, status }) {
     }
 }
 
+// TODO Onboard link should be to either "default" flow or all existing ones
 function UserProfileCard(props: { userData: ApiUserData }) {
     return (
         <>
