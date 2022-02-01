@@ -29,7 +29,7 @@ steps:
       - required: true
         label: Label for this control
         variableName: ''
-        minLength: 1
+        minLength: 5
         type: WizardTextControl
   - type: WizardStep
     title: And now for the second card
