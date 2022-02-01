@@ -28,7 +28,7 @@ steps:
         defaultValue: 5
       - required: true
         label: Label for this control
-        variableName: ''
+        variableName: ninetailed
         minLength: 5
         type: WizardTextControl
   - type: WizardStep
