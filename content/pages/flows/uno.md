@@ -12,7 +12,7 @@ steps:
       - type: WizardTextControl
         required: true
         label: How shall we call you?
-        variableName: notEssentialString
+        variableName: nickname
         minLength: 3
       - type: WizardTextControl
         required: false
