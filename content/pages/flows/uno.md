@@ -26,6 +26,11 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
+      - required: true
+        label: Label for this control
+        variableName: ''
+        minLength: 1
+        type: WizardTextControl
   - type: WizardStep
     title: And now for the second card
     description: |
