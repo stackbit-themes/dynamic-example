@@ -1,5 +1,5 @@
 ---
-title: Flow Numero Uno!
+title: Flow Numero Uno
 layout: WizardFlow
 steps:
   - type: WizardStep
