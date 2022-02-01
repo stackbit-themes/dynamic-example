@@ -1,4 +1,4 @@
-import { ContentObjectModel } from "./common/base-model-types";
+import { ContentObjectMetadata, ContentObjectModel } from "./common/base-model-types";
 
 export interface WizardControlModel extends ContentObjectModel {
     required: boolean;
@@ -27,13 +27,17 @@ export interface WizardFlowModel extends ContentObjectModel {
     steps?: WizardStepModel[];
 }
 
+export interface WizardFlowMetadataModel extends ContentObjectMetadata {
+    flowAction: string;
+}
+
 export interface HeaderModel extends ContentObjectModel {
     // TODO fill this out
 }
 
 export interface SiteConfigModel extends ContentObjectModel {
-    // TODO fill this out
-    favicon?: string
+    favicon?: string;
+    defaultFlow?: WizardFlowModel|string; // TODO doc
     header?: HeaderModel;
 }
 
@@ -48,14 +52,25 @@ export interface UserProfilePageModel extends ContentObjectModel {
 }
 // TODO refactor to move to common
 
-export interface PageComponentProps {
+
+
+/*
+export interface PageComponentProps extends CommonProps {
+    [k: string]: any;
+}
+*/
+
+export interface PageComponentCommonProps {
     site: SiteConfigModel;
-    flowIds?: string[];
+    allFlowIds?: string[];
     [k: string]: any;
 }
 
-export interface GenericPageComponentProps extends PageComponentProps { 
-    page: ContentObjectModel;
+export interface GenericPageComponentProps extends PageComponentCommonProps { 
+    page: ContentObjectModel;   
 }
 
 export type GenericPageComponent = (props: GenericPageComponentProps) => JSX.Element;
+
+export type WizardFlowComponentProps = {flow: WizardFlowModel};
+export type WizardFlowComponent = (props: WizardFlowComponentProps) => JSX.Element;

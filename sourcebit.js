@@ -4,7 +4,7 @@ const {
     urlPathFromFilePath,
     isDev
 } = require('./src/utils/common/page-utils');
-const { resolveReferenceFields } = require('./src/utils/common/data-utils');
+const { resolveReferenceFields } = require('./src/utils/common/references-resolver');
 
 // TODO separate this to common package and project-specific config
 module.exports = {
@@ -28,10 +28,16 @@ module.exports = {
                 flattenAssetUrls: true,
                 commonProps: (objects) => {
                     const site = objects.find((o) => o.__metadata.modelName === 'SiteConfig');
-                    const flows = objects.filter((o) => o.__metadata.modelName === 'WizardFlow');
-                    const flowIds = flows.map((o) => o.__metadata.id);
-                    console.log('Found flowIds:', flowIds);
-                    return { site, flowIds };
+                    const shallowSite = {
+                        ...site,
+                        defaultFlow: site.defaultFlow?.__metadata.id
+                    };
+
+                    const allFlows = objects.filter((o) => o.__metadata.modelName === 'WizardFlow');
+                    const allflowIds = allFlows.map((flow) => flow.__metadata.id);
+                    const commonProps = { site: shallowSite, allflowIds };
+                    console.log('commonProps:', commonProps);
+                    return commonProps;
                 },
                 pages: (objects) => {
                     function addMetadata(obj, addedMetadata) {
@@ -54,10 +60,20 @@ module.exports = {
 
                         if (obj.__metadata.sourceName === 'pages') {
                             if (obj.__metadata.modelName === 'WizardFlow') {
-                                paths.push(
-                                    { urlPath: urlPath, routeHandler: 'flows' },
-                                    { urlPath: urlPath + '/run', routeHandler: 'flows' }
-                                );
+                                // Don't build the flow editor page on live websites
+                                // (even if they are built and visited, editing wouldn't be possible - the content is part of the Git repo)
+                                if (isDev) {
+                                    paths.push({
+                                        urlPath: urlPath,
+                                        routeHandler: 'flows',
+                                        flowAction: 'edit'
+                                    });
+                                }
+                                paths.push({
+                                    urlPath: urlPath + '/run',
+                                    routeHandler: 'flows',
+                                    flowAction: 'run'
+                                });
                             } else if (obj.__metadata.modelName === 'UserProfilePage') {
                                 paths.push({ urlPath: urlPath, routeHandler: 'user' });
                             } else {

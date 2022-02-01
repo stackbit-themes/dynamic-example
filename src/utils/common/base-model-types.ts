@@ -1,4 +1,4 @@
-interface ContentObjectMetadata {
+export interface ContentObjectMetadata {
     id: string;
     source: string;
     sourceName?: string;
@@ -9,7 +9,7 @@ interface ContentObjectMetadata {
     modelName: string;
     modelLabel: string;
     urlPath?: string;
-    routeHandler: string;
+    routeHandler?: string;
 }
 
 export interface ContentObjectModel {

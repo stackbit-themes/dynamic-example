@@ -1,11 +1,10 @@
 import React from 'react';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 import { getComponent } from '../components/components-registry';
-import { allPagePaths, staticPropsBySlug } from '../utils/common/props-helper';
+import { staticPagePaths, staticPropsFor } from '../utils/common/page-props-helper';
 import { GenericPageComponentProps, GenericPageComponent } from '../utils/model-types';
 
-function Page(props: GenericPageComponentProps) {
-    const { page, site } = props;
+function Page({ page, site }: GenericPageComponentProps) {
     const { layout } = page;
     if (!layout) throw new Error(`page has no layout: ${page}`);
 
@@ -16,12 +15,12 @@ function Page(props: GenericPageComponentProps) {
 }
 
 export async function getStaticPaths() {
-    const paths = await allPagePaths('default');
+    const paths = await staticPagePaths({ routeHandler: 'default' });
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-    return await staticPropsBySlug(params.slug);
+    return await staticPropsFor(params.slug);
 }
 
 export default withRemoteDataUpdates(Page);

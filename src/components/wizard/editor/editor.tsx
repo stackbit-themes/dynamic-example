@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { SiteConfigModel, WizardFlowModel } from '../../../utils/model-types';
+import { WizardFlowComponentProps } from '../../../utils/model-types';
 import { getComponent } from '../../components-registry';
 import { FlowValidAlert, FlowValidationAlerts } from './alerts';
 import { validateFlowDefinition } from './validation';
 
-export default function WizardFlowEditor(props: { page: WizardFlowModel; site: SiteConfigModel }) {
-    const flow = props.page;
+export default function WizardFlowEditor({ flow }: WizardFlowComponentProps) {
     const steps = flow.steps || [];
     const selfUrl = flow.__metadata.urlPath;
     const runFlowUrl = `${selfUrl}/run/?to=${selfUrl}`;

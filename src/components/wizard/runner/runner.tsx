@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { getComponent } from '../../../components/components-registry';
-import { PageComponentProps, WizardFlowModel } from '../../../utils/model-types';
+import {
+    PageComponentCommonProps,
+    WizardFlowComponent,
+    WizardFlowComponentProps,
+    WizardFlowModel
+} from '../../../utils/model-types';
 import { VariableValuesMap, WizardStepComponent } from '../../../components/wizard/types';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-
-interface RunFlowPageProps extends PageComponentProps {
-    page: WizardFlowModel;
-}
 
 async function storeUserFlowData(variableValues: VariableValuesMap) {
     console.log('storeUserFlowData', variableValues);
@@ -20,14 +21,13 @@ async function storeUserFlowData(variableValues: VariableValuesMap) {
     });
 }
 
-export default function WizardFlowRunner(props: RunFlowPageProps) {
+export default function WizardFlowRunner({ flow }: WizardFlowComponentProps) {
     const { data: session } = useSession();
     const router = useRouter();
 
     const [currStep, setCurrStep] = React.useState(0);
     const [currStepIsValid, setCurrStepIsValid] = React.useState(false);
     const variableValues = React.useRef<VariableValuesMap>({});
-    const flow = props.page;
     const steps = flow.steps || [];
 
     function handleVarsChange(stepVariableValues: VariableValuesMap) {
