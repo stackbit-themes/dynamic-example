@@ -26,11 +26,6 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
-      - required: true
-        label: Label for this control
-        variableName: ninetailed
-        minLength: 5
-        type: WizardTextControl
   - type: WizardStep
     title: And now for the second card
     description: |
