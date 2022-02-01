@@ -10,3 +10,7 @@ fields:
     name: header
     label: Header configuration
     models: [Header]
+  - type: reference
+    name: defaultFlow
+    label: Default wizard flow
+    models: [WizardFlow]

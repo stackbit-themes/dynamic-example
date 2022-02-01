@@ -8,7 +8,25 @@ fields:
     label: Theme
     required: true
     options:
-      - label: Light
-        value: light
-      - label: Dark
-        value: dark
+      - light
+      - dark
+      - cupcake
+      - bumblebee
+      - emerald
+      - corporate
+      - synthwave
+      - retro
+      - cyberpunk
+      - valentine
+      - halloween
+      - garden
+      - forest
+      - aqua
+      - lofi
+      - pastel
+      - fantasy
+      - wireframe
+      - black
+      - luxury
+      - dracula
+      - cmyk

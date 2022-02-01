@@ -8,7 +8,7 @@ export default function WizardFlowEditor(props: { page: WizardFlowModel; site: S
     const flow = props.page;
     const steps = flow.steps || [];
     const selfUrl = flow.__metadata.urlPath;
-    const runFlowUrl = `${selfUrl}/run/?to={selfUrl}`;
+    const runFlowUrl = `${selfUrl}/run/?to=${selfUrl}`;
 
     const flowDefinitionErrors = validateFlowDefinition(flow);
     return (

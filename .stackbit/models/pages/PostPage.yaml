@@ -19,9 +19,9 @@ fields:
   - type: string
     name: excerpt
     label: Excerpt
-    default: Nunc rutrum felis dui, ut consequat sapien scelerisque vel. Integer condimentum dignissim justo vel faucibus.
+    default: An enticing snippet to get your attention.
   - type: list
-    name: footerSections
+    name: bottomSections
     label: Sections
     items:
       type: model

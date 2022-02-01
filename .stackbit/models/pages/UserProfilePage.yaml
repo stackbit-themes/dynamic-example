@@ -3,14 +3,17 @@ layout: UserProfilePage
 label: User Profile Page
 hideContent: true
 fields:
-  - type: string
-    name: title
-    label: Title
-    default: User Profile
-    required: true
   - type: list
     name: topSections
     label: Top Sections
+    items:
+      type: model
+      groups:
+        - sectionComponents
+    default: []
+  - type: list
+    name: bottomSections
+    label: Bottom Sections
     items:
       type: model
       groups:

@@ -12,10 +12,5 @@ fields:
   - type: list
     items:
       type: string
-    name: primaryLinks
-    label: Primary links
-  - type: list
-    name: secondaryLinks
-    label: Secondary links
-    items:
-      type: string
+    name: links
+    label: links
