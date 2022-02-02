@@ -74,8 +74,6 @@ module.exports = {
                                     routeHandler: 'flows',
                                     flowAction: 'run'
                                 });
-                            } else if (obj.__metadata.modelName === 'UserProfilePage') {
-                                paths.push({ urlPath: urlPath, routeHandler: 'user' });
                             } else {
                                 paths.push({ urlPath });
                             }

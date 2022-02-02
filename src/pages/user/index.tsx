@@ -4,19 +4,19 @@ import { Session } from 'next-auth';
 import AccessDenied from '../../components/access-denied';
 import { ApiUserResponse } from '../../utils/api-types';
 import BaseLayout from '../../components/pageLayouts/base';
-import { UserProfilePageModel, PageComponentCommonProps } from '../../utils/model-types';
-import { staticPropsFor, urlPathOfContent } from '../../utils/common/page-props-helper';
+import { SiteConfigModel } from '../../utils/model-types';
+import { urlPathOfContent } from '../../utils/common/page-props-helper';
 import { UserProfileCard } from '../../components/user/user-profile-card';
+import { getContentCommonProps } from '../../utils/utils';
 
-interface UserProfilePageProps extends PageComponentCommonProps {
-    page: UserProfilePageModel;
+interface UserPageProps {
+    site: SiteConfigModel;
     defaultFlowUrl: string | null;
 }
-
-export default function Page({ page, site, defaultFlowUrl }: UserProfilePageProps) {
+export default function UserPage({ site, defaultFlowUrl }: UserPageProps) {
     const { data: session } = useSession();
     return (
-        <BaseLayout page={page} site={site}>
+        <BaseLayout page={null} site={site}>
             {session ? (
                 <UserProfile defaultFlowUrl={defaultFlowUrl} session={session} />
             ) : (
@@ -60,12 +60,16 @@ function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlo
 }
 
 /*
-    TODO document this case (specific route w/content object + adding content props)
+    TODO document this case (specific route w/o content object, but adding content props)
 */
 export async function getStaticProps() {
-    let staticProps = await staticPropsFor('/user');
+    const commonProps = await getContentCommonProps();
+    const defaultFlow = commonProps.site.defaultFlow;
+    const defaultFlowUrl = defaultFlow ? await urlPathOfContent(defaultFlow) : null;
 
-    const defaultFlow = staticProps.props.site.defaultFlow;
-    staticProps.props.defaultFlowUrl = defaultFlow ? await urlPathOfContent(defaultFlow) : null;
-    return staticProps;
+    const pageProps: UserPageProps = {
+        site: commonProps.site,
+        defaultFlowUrl: defaultFlowUrl
+    };
+    return { props: pageProps };
 }

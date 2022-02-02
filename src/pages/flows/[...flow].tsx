@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import BaseLayout from '../../components/pageLayouts/base';
 import {
     WizardFlowMetadataModel,

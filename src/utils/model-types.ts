@@ -41,6 +41,11 @@ export interface SiteConfigModel extends ContentObjectModel {
     header?: HeaderModel;
 }
 
+export interface ContentCommonProps {
+    site: SiteConfigModel;
+    allFlowIds: string[];
+}
+
 export interface GeneralPageModel extends ContentObjectModel {
     title: string;
     sections?: any[]

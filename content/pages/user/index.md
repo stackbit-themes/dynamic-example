@@ -1,4 +1,0 @@
----
-layout: UserProfilePage
-topSections: []
----

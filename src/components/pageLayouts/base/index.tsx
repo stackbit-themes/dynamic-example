@@ -1,25 +1,26 @@
 import * as React from 'react';
 import Head from 'next/head';
 import Header from './header';
-import Footer from './footer';
-import { GenericPageComponentProps } from '../../../utils/model-types';
+import { SiteConfigModel } from '../../../utils/model-types';
+import { ContentObjectModel } from '../../../utils/common/base-model-types';
+import { sbObjectIdFor } from '../../../utils/common/utils';
 
-// TODO make usable without a page model? (e.g. for sign-in page)
+interface BaseLayoutProps {
+    site: SiteConfigModel;
+    page?: ContentObjectModel;
+}
 
-export default function BaseLayout(props: GenericPageComponentProps) {
-    const { page, site } = props;
-    const siteMeta = site.__metadata;
-    const pageMeta = page.__metadata;
+const BaseLayout: React.FunctionComponent<BaseLayoutProps> = ({ site, page, children }) => {
     return (
-        <div className="page" data-sb-object-id={pageMeta.id}>
-            <div className="base-layout">
-                <Head>
-                    <title>{page.title}</title>
-                    {site.favicon && <link rel="icon" href={site.favicon} />}
-                </Head>
-                {site.header && <Header {...site.header} annotationPrefix={siteMeta.id} />}
-                {props.children}
-            </div>
+        <div className="page base-layout" {...sbObjectIdFor(page)}>
+            <Head>
+                {page && <title>{page.title}</title>}
+                {site.favicon && <link rel="icon" href={site.favicon} />}
+            </Head>
+            {site.header && <Header {...site.header} {...sbObjectIdFor(site)} />}
+            {children}
         </div>
     );
-}
+};
+
+export default BaseLayout;

@@ -1,14 +1,13 @@
 import { sourcebitDataClient } from 'sourcebit-target-next';
-import { GenericPageComponentProps } from '../model-types';
 import { ContentObjectModel } from "./base-model-types";
 
 interface AllContent { 
     pages: ContentObjectModel[], 
     objects: ContentObjectModel[], 
-    props: any;
+    props: Record<string, any>;
 }
 
-async function getAllContent(): Promise<AllContent> {
+export async function getAllContent(): Promise<AllContent> {
     return await sourcebitDataClient.getData();
 }
 
@@ -20,11 +19,14 @@ export async function staticPagePaths(options: {routeHandler?: string} = {}) {
         map((page) => page.__metadata?.urlPath);
 }
 
-interface GenericStaticProps {
-    props: GenericPageComponentProps;
+interface StaticProps {
+    props: {
+        page: ContentObjectModel,
+        [k: string]: any
+    };
 }
 
-export async function staticPropsFor(url: string|string[]): Promise<GenericStaticProps> {
+export async function staticPropsFor(url: string|string[]): Promise<StaticProps> {
     let urlPath: string;
     if (!url) {
         urlPath = '/';
