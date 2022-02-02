@@ -25,9 +25,6 @@ contentModels:
     isPage: true
     urlPath: '/flows/{slug}'
     newFilePath: 'flows/{slug}.md'
-  UserProfilePage:
-    isPage: true
-    urlPath: '/{slug}'
   Person:
     newFilePath: 'people/{slug}.json'
 modelsSource:
