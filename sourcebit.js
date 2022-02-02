@@ -24,7 +24,7 @@ module.exports = {
         {
             module: require('sourcebit-target-next'),
             options: {
-                liveUpdate: isDev,
+                liveUpdate: false,
                 flattenAssetUrls: true,
                 commonProps: (objects) => {
                     const site = objects.find((o) => o.__metadata.modelName === 'SiteConfig');
