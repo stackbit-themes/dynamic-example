@@ -26,6 +26,11 @@ export default function Header(props: HeaderModel) {
                                 </Link>
                             </li>
                             <li>
+                                <Link href="/flows">
+                                    <a>Wizard Flows</a>
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href="/user/">
                                     <a>User profile</a>
                                 </Link>

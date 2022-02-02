@@ -28,3 +28,14 @@ export async function set(k: string, v: any): Promise<void> {
     const json = await res.json(); // TODO check response
     console.log("SET result", json)
 }
+
+export async function del(k: string): Promise<void> {
+    console.log(`DEL k: ${k}`);
+    const res = await fetch(`https://${upstashHost}/del/${encodeURIComponent(k)}`, {
+        headers: {
+            Authorization: "Bearer " + upstashToken
+        }
+    });
+    const json = await res.json(); // TODO check response
+    console.log("DEL result", json)
+}

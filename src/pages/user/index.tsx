@@ -13,7 +13,8 @@ interface UserPageProps {
     site: SiteConfigModel;
     defaultFlowUrl: string | null;
 }
-export default function UserPage({ site, defaultFlowUrl }: UserPageProps) {
+
+const UserPage: React.FC<UserPageProps> = ({ site, defaultFlowUrl }: UserPageProps) => {
     const { data: session } = useSession();
     return (
         <BaseLayout page={null} site={site}>
@@ -25,10 +26,13 @@ export default function UserPage({ site, defaultFlowUrl }: UserPageProps) {
             ;
         </BaseLayout>
     );
-}
+};
+
+export default UserPage;
 
 function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlowUrl: string }) {
     const [apiUserResponse, setApiUserResponse] = useState<ApiUserResponse>();
+    const [refresher, setRefresher] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,7 +43,12 @@ function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlo
             }
         };
         fetchData();
-    }, [session]);
+    }, [session, refresher]);
+
+    // Make the above useEffect() run again to re-fetch user info
+    function handleRefresh() {
+        setRefresher(refresher + 1);
+    }
 
     if (!apiUserResponse) {
         return null;
@@ -52,6 +61,7 @@ function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlo
                     <UserProfileCard
                         userData={apiUserResponse.user}
                         defaultFlowUrl={defaultFlowUrl}
+                        onRefresh={handleRefresh}
                     />
                 </div>
             </div>

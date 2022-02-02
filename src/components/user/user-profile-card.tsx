@@ -2,12 +2,21 @@
 import { ApiUserData } from '../../utils/api-types';
 import Link from 'next/link';
 
+async function deleteUserFlowData() {
+    console.log('deleteUserFlowData');
+    await fetch('/api/userFlow', {
+        method: 'DELETE'
+    });
+}
+
 export function UserProfileCard({
     userData,
-    defaultFlowUrl
+    defaultFlowUrl,
+    onRefresh
 }: {
     userData: ApiUserData;
     defaultFlowUrl: string | null;
+    onRefresh: Function;
 }) {
     return (
         <>
@@ -34,11 +43,22 @@ export function UserProfileCard({
                 {userData.flowData ? (
                     <>
                         <UserFlowData userData={userData} />
-                        <Link href={`${defaultFlowUrl}/run?to=/user`}>
-                            <a>
-                                <button className="btn btn-sm">Onboard again</button>
-                            </a>
-                        </Link>
+                        <div className="flex gap-2">
+                            <Link href={`${defaultFlowUrl}/run?to=/user`}>
+                                <a>
+                                    <button className="btn btn-sm">Run again</button>
+                                </a>
+                            </Link>
+                            <button
+                                className="btn btn-sm btn-outline"
+                                onClick={async () => {
+                                    await deleteUserFlowData();
+                                    if (onRefresh) onRefresh();
+                                }}
+                            >
+                                Forget me
+                            </button>
+                        </div>
                     </>
                 ) : (
                     <Link href="/flows/uno/run?to=/user">
@@ -56,18 +76,22 @@ function UserFlowData({ userData }: { userData: ApiUserData }) {
     console.log(userData.flowData);
     return (
         <>
-            <div className="text-md font-extrabold">My answers to the flow</div>
-            <div className="flex flex-col text-center gap-2">
-                {Object.entries(userData.flowData).map((o, index) => {
-                    const [varName, varValue] = o;
-                    const text = `${varName}: ${varValue}`;
-                    return (
-                        <div key={varName} className="flex justify-center">
-                            <div className="badge badge-accent badge-lg">{text}</div>
-                        </div>
-                    );
-                })}
-            </div>{' '}
+            <div className="text-md font-bold">My answers to the flow:</div>
+            <div className="card shadow-xl bg-accent text-primary-content">
+                <div className="card-body p-6">
+                    <p style={{ fontFamily: 'menlo,monaco,monospace' }}>
+                        {Object.entries(userData.flowData).map((entry, index) => {
+                            const [k, v] = entry;
+                            return (
+                                <div key={index}>
+                                    <span>{`${k}: `}</span>
+                                    <span>{v}</span>
+                                </div>
+                            );
+                        })}
+                    </p>
+                </div>
+            </div>
         </>
     );
 }
