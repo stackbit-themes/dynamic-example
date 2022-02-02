@@ -75,7 +75,9 @@ export interface GenericPageComponentProps extends PageComponentCommonProps {
     page: ContentObjectModel;   
 }
 
+// TODO move this to React.FC<GenericPageComponentProps> and refactor accordingly
 export type GenericPageComponent = (props: GenericPageComponentProps) => JSX.Element;
 
 export type WizardFlowComponentProps = {flow: WizardFlowModel};
+// TODO move this to React.FC<WizardFlowComponentProps> and refactor accordingly
 export type WizardFlowComponent = (props: WizardFlowComponentProps) => JSX.Element;

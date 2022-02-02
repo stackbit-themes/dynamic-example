@@ -13,3 +13,7 @@ export function sbObjectIdFor(o?: ContentObjectModel) {
     return o ? {'data-sb-object-id': o.__metadata.id} : {};
 }
 
+export function isEmptyObject(o: object) {
+    return Object.keys(o).length === 0;
+}
+

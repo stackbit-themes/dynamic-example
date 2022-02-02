@@ -10,9 +10,31 @@ export default function Header(props: HeaderModel) {
         <>
             <div className="navbar mb-2 shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-neutral-content">
                 <div className="flex-none hidden lg:flex">
-                    <button className="btn btn-square btn-ghost">
-                        <HamburgerIcon />
-                    </button>
+                    <div className="dropdown dropdown-hover">
+                        <div tabIndex={0}>
+                            <button className="btn btn-square btn-ghost">
+                                <HamburgerIcon />
+                            </button>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-48 !text-neutral"
+                        >
+                            <li>
+                                <Link href="/">
+                                    <a>Home</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/user/">
+                                    <a>User profile</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/stackbit">More to come...</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="flex-1 hidden px-2 mx-2 lg:flex">
                     <span className="text-lg font-bold">
@@ -45,7 +67,6 @@ function SessionControls() {
     return session ? (
         <>
             <div className="mr-2">{session.user.name}</div>
-
             <div className="dropdown dropdown-hover dropdown-end">
                 <div tabIndex={0}>
                     <UserAvatar session={session} />

@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
 import { getComponent } from '../../../components/components-registry';
-import {
-    PageComponentCommonProps,
-    WizardFlowComponent,
-    WizardFlowComponentProps,
-    WizardFlowModel
-} from '../../../utils/model-types';
+import { WizardFlowComponentProps } from '../../../utils/model-types';
 import { VariableValuesMap, WizardStepComponent } from '../../../components/wizard/types';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
