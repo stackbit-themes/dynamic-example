@@ -23,7 +23,6 @@ const UserPage: React.FC<UserPageProps> = ({ site, defaultFlowUrl }: UserPagePro
             ) : (
                 <AccessDenied />
             )}
-            ;
         </BaseLayout>
     );
 };
