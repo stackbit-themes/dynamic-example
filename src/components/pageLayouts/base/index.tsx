@@ -5,6 +5,7 @@ import { SiteConfigModel } from '../../../utils/model-types';
 import { ContentObjectModel } from '../../../utils/common/base-model-types';
 import { sbObjectIdFor } from '../../../utils/common/utils';
 
+// TODO Move to extending commonProps? - and maybe stuff all the common under props.common...
 interface BaseLayoutProps {
     site: SiteConfigModel;
     page?: ContentObjectModel;

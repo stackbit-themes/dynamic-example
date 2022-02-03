@@ -5,7 +5,7 @@ import { staticPagePaths, staticPropsFor } from '../utils/common/page-props-help
 import { GenericPageComponentProps, GenericPageComponent } from '../utils/model-types';
 
 function Page({ page, site }: GenericPageComponentProps) {
-    const { layout } = page;
+    const layout = page.layout || page.type;
     if (!layout) throw new Error(`page has no layout: ${page}`);
 
     const PageComponent = getComponent(layout) as GenericPageComponent;
