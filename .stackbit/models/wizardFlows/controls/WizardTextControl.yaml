@@ -6,5 +6,6 @@ fields:
   - type: number
     name: minLength
     label: Minimum length
+    # TODO fix so empty/null means no limit as well (equal to one...)
     default: 1
     min: 1

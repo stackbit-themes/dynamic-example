@@ -9,8 +9,6 @@ function Page({ page, site }: GenericPageComponentProps) {
     if (!layout) throw new Error(`page has no layout: ${page}`);
 
     const PageComponent = getComponent(layout) as GenericPageComponent;
-    if (!PageComponent) throw new Error(`No page component found for layout: ${layout}`);
-
     return <PageComponent page={page} site={site} />;
 }
 

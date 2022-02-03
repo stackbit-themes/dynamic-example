@@ -6,7 +6,7 @@ import { ApiUserResponse } from '../../utils/api-types';
 import BaseLayout from '../../components/pageLayouts/base';
 import { SiteConfigModel } from '../../utils/model-types';
 import { urlPathOfContent } from '../../utils/common/page-props-helper';
-import { UserProfileCard } from '../../components/user/user-profile-card';
+import UserProfileCard from '../../components/user/user-profile-card';
 import { getContentCommonProps } from '../../utils/utils';
 
 interface UserPageProps {
@@ -27,8 +27,6 @@ const UserPage: React.FC<UserPageProps> = ({ site, defaultFlowUrl }: UserPagePro
         </BaseLayout>
     );
 };
-
-export default UserPage;
 
 function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlowUrl: string }) {
     const [apiUserResponse, setApiUserResponse] = useState<ApiUserResponse>();
@@ -68,6 +66,8 @@ function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlo
         );
     }
 }
+
+export default UserPage;
 
 /*
     TODO document this case (specific route w/o content object, but adding content props)

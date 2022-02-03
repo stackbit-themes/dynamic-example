@@ -16,3 +16,21 @@ export interface ApiUserData {
     image?: string;
     flowData?: VariableValuesMap;
 }
+
+export async function deleteUserFlowData() {
+    console.log('deleteUserFlowData');
+    await fetch('/api/userFlow', {
+        method: 'DELETE'
+    });
+}
+
+export async function storeUserFlowData(variableValues: VariableValuesMap) {
+    console.log('storeUserFlowData', variableValues);
+    await fetch('/api/userFlow', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(variableValues)
+    });
+}

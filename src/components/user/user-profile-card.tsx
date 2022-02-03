@@ -1,23 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import { ApiUserData } from '../../utils/api-types';
+import { ApiUserData, deleteUserFlowData } from '../../utils/api-types';
 import Link from 'next/link';
 
-async function deleteUserFlowData() {
-    console.log('deleteUserFlowData');
-    await fetch('/api/userFlow', {
-        method: 'DELETE'
-    });
-}
-
-export function UserProfileCard({
-    userData,
-    defaultFlowUrl,
-    onRefresh
-}: {
+interface UserProfileCardProps {
     userData: ApiUserData;
     defaultFlowUrl: string | null;
     onRefresh: Function;
-}) {
+}
+
+const UserProfileCard: React.FunctionComponent<UserProfileCardProps> = ({
+    userData,
+    defaultFlowUrl,
+    onRefresh
+}) => {
     return (
         <>
             <div className="grid items-center max-w-md gap-4 p-4 py-8 shadow-xl bg-base-100 rounded-box place-items-center">
@@ -70,7 +65,7 @@ export function UserProfileCard({
             </div>
         </>
     );
-}
+};
 
 function UserFlowData({ userData }: { userData: ApiUserData }) {
     console.log(userData.flowData);
@@ -95,3 +90,5 @@ function UserFlowData({ userData }: { userData: ApiUserData }) {
         </>
     );
 }
+
+export default UserProfileCard;

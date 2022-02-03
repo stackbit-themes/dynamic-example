@@ -32,12 +32,7 @@ module.exports = {
                         ...site,
                         defaultFlow: site.defaultFlow?.__metadata.id
                     };
-
-                    const allFlows = objects.filter((o) => o.__metadata.modelName === 'WizardFlow');
-                    const allflowIds = allFlows.map((flow) => flow.__metadata.id);
-                    const commonProps = { site: shallowSite, allflowIds };
-                    console.log('commonProps:', commonProps);
-                    return commonProps;
+                    return { site: shallowSite };
                 },
                 pages: (objects) => {
                     function addMetadata(obj, addedMetadata) {

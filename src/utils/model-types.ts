@@ -1,3 +1,4 @@
+import React from "react";
 import { ContentObjectMetadata, ContentObjectModel } from "./common/base-model-types";
 
 export interface WizardControlModel extends ContentObjectModel {
@@ -41,29 +42,14 @@ export interface SiteConfigModel extends ContentObjectModel {
     header?: HeaderModel;
 }
 
-export interface ContentCommonProps {
-    site: SiteConfigModel;
-    allFlowIds: string[];
-}
-
 export interface GeneralPageModel extends ContentObjectModel {
     title: string;
     sections?: any[]
 }
 
-export interface UserProfilePageModel extends ContentObjectModel {
-    title: string;
-    topSections?: any[]
+export interface ContentCommonProps {
+    site: SiteConfigModel;
 }
-// TODO refactor to move to common
-
-
-
-/*
-export interface PageComponentProps extends CommonProps {
-    [k: string]: any;
-}
-*/
 
 export interface PageComponentCommonProps {
     site: SiteConfigModel;
@@ -75,9 +61,4 @@ export interface GenericPageComponentProps extends PageComponentCommonProps {
     page: ContentObjectModel;   
 }
 
-// TODO move this to React.FC<GenericPageComponentProps> and refactor accordingly
-export type GenericPageComponent = (props: GenericPageComponentProps) => JSX.Element;
-
-export type WizardFlowComponentProps = {flow: WizardFlowModel};
-// TODO move this to React.FC<WizardFlowComponentProps> and refactor accordingly
-export type WizardFlowComponent = (props: WizardFlowComponentProps) => JSX.Element;
+export type GenericPageComponent = React.FunctionComponent<GenericPageComponentProps>;

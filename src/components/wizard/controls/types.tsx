@@ -18,8 +18,6 @@ export type ControlStateBuilder = (
 export let controlStateBuilders: Record<string, ControlStateBuilder> = {};
 
 export function buildInitialState(control: WizardControlModel): WizardControlState {
-    //console.log(control); // TODO remove
-    //console.log(controlValueInitializers)
     const initialValue = controlValueInitializers[control.type](control);
     const initialStatus = controlStateBuilders[control.type](control, initialValue);
     return initialStatus;
@@ -37,4 +35,4 @@ export interface WizardControlProps extends WizardControlModel {
     onValueChange: OnControlValueChange;
 }
 
-export type WizardControlComponent = (props: WizardControlProps) => JSX.Element;
+export type WizardControlComponent = React.FunctionComponent<WizardControlProps>;

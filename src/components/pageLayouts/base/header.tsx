@@ -4,42 +4,13 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { HeaderModel } from '../../../utils/model-types';
 import Link from 'next/link';
 
-// TODO work on this
-export default function Header(props: HeaderModel) {
+// TODO work on this - allow editing logo, brand and links (label+URL)
+const Header: React.FunctionComponent<HeaderModel> = (props) => {
     return (
         <>
             <div className="navbar mb-2 shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-neutral-content">
                 <div className="flex-none hidden lg:flex">
-                    <div className="dropdown dropdown-hover">
-                        <div tabIndex={0}>
-                            <button className="btn btn-square btn-ghost">
-                                <HamburgerIcon />
-                            </button>
-                        </div>
-                        <ul
-                            tabIndex={0}
-                            className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-48 !text-neutral"
-                        >
-                            <li>
-                                <Link href="/">
-                                    <a>Home</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/flows">
-                                    <a>Wizard Flows</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/user/">
-                                    <a>User profile</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/stackbit">More to come...</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <HamburgerMenu />
                 </div>
                 <div className="flex-1 hidden px-2 mx-2 lg:flex">
                     <span className="text-lg font-bold">
@@ -48,6 +19,7 @@ export default function Header(props: HeaderModel) {
                         </Link>
                     </span>
                 </div>
+
                 <div className="flex-1 lg:flex-none">
                     <div className="form-control">
                         <input type="text" placeholder="Search" className="input input-ghost" />
@@ -58,11 +30,49 @@ export default function Header(props: HeaderModel) {
                         <SearchIcon />
                     </button>
                 </div>
+
                 <div className="flex-none">
                     <SessionControls />
                 </div>
             </div>
         </>
+    );
+};
+
+export default Header;
+
+function HamburgerMenu() {
+    return (
+        <div className="dropdown dropdown-hover">
+            <div tabIndex={0}>
+                <button className="btn btn-square btn-ghost">
+                    <HamburgerIcon />
+                </button>
+            </div>
+            <ul
+                tabIndex={0}
+                className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-48 !text-neutral"
+            >
+                <li>
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/flows">
+                        <a>Wizard Flows</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/user/">
+                        <a>User profile</a>
+                    </Link>
+                </li>
+                <li>
+                    <a href="https://twitter.com/stackbit">More to come...</a>
+                </li>
+            </ul>
+        </div>
     );
 }
 

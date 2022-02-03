@@ -3,8 +3,7 @@ import BaseLayout from '../../components/pageLayouts/base';
 import {
     WizardFlowMetadataModel,
     WizardFlowModel,
-    PageComponentCommonProps,
-    WizardFlowComponent
+    PageComponentCommonProps
 } from '../../utils/model-types';
 import { staticPagePaths, staticPropsFor } from '../../utils/common/page-props-helper';
 import WizardFlowEditor from '../../components/wizard/editor/editor';
@@ -12,14 +11,11 @@ import WizardFlowRunner from '../../components/wizard/runner/runner';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 import { getContentCommonProps } from '../../utils/utils';
 import { isEmptyObject } from '../../utils/common/utils';
-import FlowsList, { FlowsListComponent } from '../../components/wizard/list';
+import FlowsList from '../../components/wizard/list';
+import { WizardFlowComponent } from '../../components/wizard/types';
 
 interface FlowPageProps extends PageComponentCommonProps {
     page?: WizardFlowModel;
-}
-
-function Hey(props) {
-    return <div>Flows main page!</div>;
 }
 
 function FlowPage({ page: flow, site }: FlowPageProps) {
@@ -54,6 +50,7 @@ export async function getStaticProps({ params }) {
     // TODO doc
     if (isEmptyObject(params)) {
         const commonProps = await getContentCommonProps();
+        // TODO fetch all flows
         const staticProps = { props: { ...commonProps } };
         console.log('[[...flow]] getStaticProps for root is:', staticProps);
         return staticProps;

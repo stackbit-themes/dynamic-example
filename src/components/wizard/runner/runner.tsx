@@ -1,22 +1,15 @@
 import React, { useEffect } from 'react';
 import { getComponent } from '../../../components/components-registry';
-import { WizardFlowComponentProps } from '../../../utils/model-types';
-import { VariableValuesMap, WizardStepComponent } from '../../../components/wizard/types';
+import {
+    VariableValuesMap,
+    WizardFlowComponent,
+    WizardStepComponent
+} from '../../../components/wizard/types';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { storeUserFlowData } from '../../../utils/api-types';
 
-async function storeUserFlowData(variableValues: VariableValuesMap) {
-    console.log('storeUserFlowData', variableValues);
-    await fetch('/api/userFlow', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(variableValues)
-    });
-}
-
-export default function WizardFlowRunner({ flow }: WizardFlowComponentProps) {
+const WizardFlowRunner: WizardFlowComponent = ({ flow }) => {
     const { data: session } = useSession();
     const router = useRouter();
 
@@ -120,4 +113,6 @@ export default function WizardFlowRunner({ flow }: WizardFlowComponentProps) {
             </div>
         </>
     );
-}
+};
+
+export default WizardFlowRunner;

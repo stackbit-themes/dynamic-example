@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
-// TODO make this more generic
+// TODO make this more generic? anyway change names...
 
 export function FlowValidationAlerts(props: { errorMessages: string[] }) {
     console.log('Errors:', props);

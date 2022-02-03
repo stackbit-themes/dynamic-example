@@ -4,6 +4,7 @@ import { WizardControlProps, controlValueInitializers, controlStateBuilders } fr
 
 const MODEL_NAME = 'WizardTextControl';
 
+// TODO get this out (also so component can be loaded dynamically)
 controlValueInitializers[MODEL_NAME] = (control) => {
     return '';
 };
@@ -30,7 +31,8 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     }
 };
 
-export default function WizardTextControl(props: WizardControlProps) {
+// TODO show variable name (as placeholder, if requested)
+const WizardTextControl: React.FunctionComponent<WizardControlProps> = (props) => {
     return (
         <div className="form-control">
             <label className="label">
@@ -38,7 +40,6 @@ export default function WizardTextControl(props: WizardControlProps) {
             </label>
             <input
                 type="text"
-                placeholder={props.label}
                 className={classNames('input', 'input-bordered', 'w-1/2', {
                     'input-error': !props.controlState.valid
                 })}
@@ -48,4 +49,6 @@ export default function WizardTextControl(props: WizardControlProps) {
             />
         </div>
     );
-}
+};
+
+export default WizardTextControl;

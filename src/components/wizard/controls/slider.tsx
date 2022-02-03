@@ -2,8 +2,10 @@ import * as React from 'react';
 import { WizardControlProps, controlValueInitializers, controlStateBuilders } from './types';
 import { WizardSliderControlModel } from '../../../utils/model-types';
 
+// TODO change naming to "flow"?
 const MODEL_NAME = 'WizardSliderControl';
 
+// TODO get this out (also so component can be loaded dynamically)
 controlValueInitializers[MODEL_NAME] = (control) => {
     return (control as WizardSliderControlModel).defaultValue;
 };
@@ -12,7 +14,7 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     return { valid: true, value: newValue, errorMessage: null };
 };
 
-export default function WizardSliderControl(props: WizardControlProps) {
+const WizardSliderControl: React.FunctionComponent<WizardControlProps> = (props) => {
     const sliderProps = props as unknown as WizardSliderControlModel;
     return (
         <div className="form-control">
@@ -31,4 +33,6 @@ export default function WizardSliderControl(props: WizardControlProps) {
             />
         </div>
     );
-}
+};
+
+export default WizardSliderControl;

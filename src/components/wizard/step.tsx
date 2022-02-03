@@ -11,9 +11,9 @@ import {
     WizardControlComponent
 } from './controls/types';
 import { WizardControlModel } from '../../utils/model-types';
-import { WizardStepProps } from './types';
+import { WizardStepComponent, WizardStepProps } from './types';
 
-export default function WizardStep(props: WizardStepProps) {
+const WizardStep: WizardStepComponent = (props) => {
     const controls: WizardControlModel[] = props.controls || [];
     const [controlStates, setControlStates] = React.useState<WizardControlState[]>(
         controls.map((control) => {
@@ -64,7 +64,7 @@ export default function WizardStep(props: WizardStepProps) {
             </div>
         </div>
     );
-}
+};
 
 function renderHeader(props: WizardStepProps) {
     return (
@@ -104,3 +104,5 @@ function renderControls(
         </div>
     );
 }
+
+export default WizardStep;
