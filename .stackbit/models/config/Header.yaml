@@ -6,6 +6,4 @@ fields:
     name: title
     label: Title
     default: Your Brand
-  - type: image
-    name: logo
-    label: Logo
+    required: true

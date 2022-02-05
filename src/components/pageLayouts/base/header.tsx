@@ -12,10 +12,10 @@ const Header: React.FunctionComponent<HeaderModel> = (props) => {
                 <div className="flex-none hidden lg:flex">
                     <HamburgerMenu />
                 </div>
-                <div className="flex-1 hidden px-2 mx-2 lg:flex">
+                <div className="flex-1 hidden pr-2 mx-2 lg:flex">
                     <span className="text-lg font-bold">
                         <Link href="/">
-                            <a>Stackbit Dynamic Example App</a>
+                            <a>{props.title}</a>
                         </Link>
                     </span>
                 </div>

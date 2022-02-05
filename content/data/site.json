@@ -2,8 +2,7 @@
     "type": "SiteConfig",
     "favicon": "/images/favicon.svg",
     "header": {
-        "title": "Stackbit Dynamic Example App",
-        "logo": "/images/logo.svg"
+        "title": "Stackbit Dynamic Example App"
     },
     "defaultFlow": "content/pages/flows/uno.md"
 }

@@ -33,7 +33,7 @@ export interface WizardFlowMetadataModel extends ContentObjectMetadata {
 }
 
 export interface HeaderModel extends ContentObjectModel {
-    // TODO fill this out
+    title: string;
 }
 
 export interface SimpleButtonModel extends ContentObjectModel {
