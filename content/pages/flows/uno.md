@@ -13,7 +13,7 @@ steps:
         required: true
         label: How shall we call you?
         variableName: nickname
-        minLength: 3
+        minLength: 5
       - type: WizardTextControl
         required: false
         label: Not essential
