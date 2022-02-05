@@ -1,0 +1,18 @@
+name: SimpleButton
+label: Simple button
+groups: [sectionButtons]
+fields:
+  - type: boolean
+    name: primary
+    label: Primary?
+    default: true
+    required: true
+  - type: string
+    name: text
+    label: Text
+    default: Button text
+    required: true
+  - type: string
+    name: link
+    label: Link to
+    required: true

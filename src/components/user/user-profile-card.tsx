@@ -73,18 +73,16 @@ function UserFlowData({ userData }: { userData: ApiUserData }) {
         <>
             <div className="text-md font-bold">My answers to the flow:</div>
             <div className="card shadow-xl bg-accent text-primary-content">
-                <div className="card-body p-6">
-                    <p style={{ fontFamily: 'menlo,monaco,monospace' }}>
-                        {Object.entries(userData.flowData).map((entry, index) => {
-                            const [k, v] = entry;
-                            return (
-                                <div key={index}>
-                                    <span>{`${k}: `}</span>
-                                    <span>{v}</span>
-                                </div>
-                            );
-                        })}
-                    </p>
+                <div className="card-body p-6" style={{ fontFamily: 'menlo,monaco,monospace' }}>
+                    {Object.entries(userData.flowData).map((entry, index) => {
+                        const [k, v] = entry;
+                        return (
+                            <div key={index}>
+                                <span>{`${k}: `}</span>
+                                <span>{v}</span>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </>

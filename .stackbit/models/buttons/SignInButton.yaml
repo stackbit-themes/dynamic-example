@@ -1,0 +1,9 @@
+name: SignInButton
+label: Sign in button
+groups: [sectionButtons]
+fields:
+  - type: string
+    name: text
+    label: Text
+    default: Sign in
+    required: true

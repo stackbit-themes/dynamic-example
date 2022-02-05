@@ -36,15 +36,26 @@ export interface HeaderModel extends ContentObjectModel {
     // TODO fill this out
 }
 
+export interface SimpleButtonModel extends ContentObjectModel {
+    primary: boolean;
+    text: string;
+    link: string;
+}
+
+export interface SignInButtonModel extends ContentObjectModel {
+    text: string;
+}
+
 export type UserGroup = 'everyone'|'loggedIn'|'anonymous';
 export interface BaseSectionModel extends ContentObjectModel {
     userGroup: UserGroup;
 }
 
-export interface TextSectionModel extends BaseSectionModel {
+export interface SimpleTextSectionModel extends BaseSectionModel {
     title?: string;
     subtitle?: string;
     content?: string
+    ctaButton?: ContentObjectModel;
 }
 
 export interface SiteConfigModel extends ContentObjectModel {

@@ -1,5 +1,5 @@
-name: TextSection
-label: Text
+name: SimpleTextSection
+label: Text section
 labelField: title
 extends:
   - BaseSection
@@ -19,3 +19,8 @@ fields:
     label: Content
     default: |-
       **Markdown** text is _possible_ here!
+  - type: model
+    name: ctaButton
+    label: CTA Button
+    groups: [sectionButtons]
+    default: null
