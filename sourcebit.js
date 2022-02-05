@@ -20,7 +20,7 @@ module.exports = {
             }
         },
         flattenMarkdownData(),
-        resolveReferenceFields(),
+        //resolveReferenceFields(), // TODO remove completely or make optional?
         {
             module: require('sourcebit-target-next'),
             options: {
@@ -28,11 +28,7 @@ module.exports = {
                 flattenAssetUrls: true,
                 commonProps: (objects) => {
                     const site = objects.find((o) => o.__metadata.modelName === 'SiteConfig');
-                    const shallowSite = {
-                        ...site,
-                        defaultFlow: site.defaultFlow?.__metadata.id
-                    };
-                    return { site: shallowSite };
+                    return { site };
                 },
                 pages: (objects) => {
                     function addMetadata(obj, addedMetadata) {

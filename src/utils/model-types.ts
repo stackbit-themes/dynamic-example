@@ -36,6 +36,17 @@ export interface HeaderModel extends ContentObjectModel {
     // TODO fill this out
 }
 
+export type UserGroup = 'everyone'|'loggedIn'|'anonymous';
+export interface BaseSectionModel extends ContentObjectModel {
+    userGroup: UserGroup;
+}
+
+export interface TextSectionModel extends BaseSectionModel {
+    title?: string;
+    subtitle?: string;
+    content?: string
+}
+
 export interface SiteConfigModel extends ContentObjectModel {
     favicon?: string;
     defaultFlow?: WizardFlowModel|string; // TODO doc
@@ -44,7 +55,7 @@ export interface SiteConfigModel extends ContentObjectModel {
 
 export interface GeneralPageModel extends ContentObjectModel {
     title: string;
-    sections?: any[]
+    sections?: BaseSectionModel[];
 }
 
 export interface ContentCommonProps {
@@ -53,10 +64,10 @@ export interface ContentCommonProps {
 
 export interface PageComponentCommonProps {
     site: SiteConfigModel;
-    allFlowIds?: string[];
     [k: string]: any;
 }
 
+// TODO move/rename this to GeneralPage?
 export interface GenericPageComponentProps extends PageComponentCommonProps { 
     page: ContentObjectModel;   
 }

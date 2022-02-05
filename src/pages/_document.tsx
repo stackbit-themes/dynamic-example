@@ -5,7 +5,7 @@
     <html> tag (see https://daisyui.com/docs/default-themes). The <html> tag is not accesible elsewhere.
 */
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
-import ThemeConfig from '../../content/data/config/theme.json';
+import ThemeConfig from '../../content/data/theme.json';
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {

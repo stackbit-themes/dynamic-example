@@ -13,8 +13,8 @@ export function getComponent(key: string, throwError: boolean = true): Component
 // TODO if we want wizard controls to be dynamic, need to make sure to init to always init the functions they register
 const components = {
     'GeneralPage': dynamic(() => import('./pageLayouts/general')),
-    'PostPage': dynamic(() => import('./pageLayouts/post')),
     'WizardStep': dynamic(() => import('./wizard/step')),
+    'TextSection': dynamic(() => import('./text-section')),
     'WizardTextControl': WizardTextControl,
     'WizardSliderControl': WizardSliderControl,
 };

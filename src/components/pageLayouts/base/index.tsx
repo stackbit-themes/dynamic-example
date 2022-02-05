@@ -13,7 +13,7 @@ interface BaseLayoutProps {
 
 const BaseLayout: React.FunctionComponent<BaseLayoutProps> = ({ site, page, children }) => {
     return (
-        <div className="page base-layout" {...sbObjectIdFor(page)}>
+        <div className="page base-layout bg-base-200 min-h-screen" {...sbObjectIdFor(page)}>
             <Head>
                 {page && <title>{page.title}</title>}
                 {site.favicon && <link rel="icon" href={site.favicon} />}

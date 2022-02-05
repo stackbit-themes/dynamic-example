@@ -17,16 +17,10 @@ contentModels:
     isPage: true
     urlPath: '/{slug}'
     newFilePath: '{slug}.md'
-  PostPage:
-    isPage: true
-    urlPath: '/blog/{slug}'
-    newFilePath: 'blog/{slug}.md'
   WizardFlow:
     isPage: true
     urlPath: '/flows/{slug}'
     newFilePath: 'flows/{slug}.md'
-  Person:
-    newFilePath: 'people/{slug}.json'
 modelsSource:
   type: files
   modelDirs:

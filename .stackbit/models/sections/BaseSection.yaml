@@ -1,0 +1,16 @@
+# TODO: doc meant to be abstract (therefore it's not in any group in itself)
+name: BaseSection
+label: Base section
+fields:
+  - type: enum
+    name: userGroup
+    label: Visible to
+    default: everyone
+    required: true
+    options:
+      - label: Everyone
+        value: everyone
+      - label: Logged-in users only
+        value: loggedIn
+      - label: Anonymous users only
+        value: anonymous

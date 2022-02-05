@@ -3,7 +3,6 @@
     "favicon": "/images/favicon.svg",
     "header": {
         "title": "Stackbit Dynamic Example App",
-        "links": [],
         "logo": "/images/logo.svg"
     },
     "defaultFlow": "content/pages/flows/uno.md"

@@ -1,6 +1,8 @@
 name: TextSection
 label: Text
 labelField: title
+extends:
+  - BaseSection
 groups:
   - sectionComponents
 fields:
@@ -13,7 +15,7 @@ fields:
     label: Subtitle
     default: A Subtitle
   - type: markdown
-    name: text
-    label: Text
+    name: content
+    label: Content
     default: |-
       **Markdown** text is _possible_ here!

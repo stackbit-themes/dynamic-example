@@ -9,8 +9,3 @@ fields:
   - type: image
     name: logo
     label: Logo
-  - type: list
-    items:
-      type: string
-    name: links
-    label: links
