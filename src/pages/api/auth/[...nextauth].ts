@@ -26,7 +26,7 @@ providers.forEach((provider) => {
     }
 })
 
-let nextAuthSecret = process.env.NEXTAUTH_SECRET;
+const nextAuthSecret = process.env.NEXTAUTH_SECRET;
 /*
 if (!nextAuthSecret && !isDev) {
     // TODO get rid of this (and ofc don't use this secret)
