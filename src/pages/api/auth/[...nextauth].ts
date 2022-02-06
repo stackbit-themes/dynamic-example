@@ -21,9 +21,9 @@ const providers: Provider[] = [
 
 providers.forEach((provider) => {
     if (provider.type === "oauth") {
-        if (!provider.options.clientId || !provider.options.clientSecret) 
+        if (!provider.options.clientId || !provider.options.clientSecret)
             console.log(`NOTE: clientId/clientSecret not set for provider: ${provider.name} (is dev: ${isDev})`, provider);
     }
 })
 
-export default NextAuth({providers});
+export default NextAuth({ providers, secret: 'sdflkj7dsfslkjasdsaduy76758ad' });
