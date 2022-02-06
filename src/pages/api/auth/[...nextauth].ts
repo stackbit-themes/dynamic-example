@@ -28,7 +28,7 @@ providers.forEach((provider) => {
 
 let nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (!nextAuthSecret) {
-    nextAuthSecret = 
+    nextAuthSecret = 'FRZZrUI2BprpVUYnDZNnjffVKEYTxwZ9VPDGQxQWcDw='
 }
 
 export default NextAuth({ 
