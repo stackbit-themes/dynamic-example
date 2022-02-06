@@ -88,7 +88,6 @@ export interface PageComponentCommonProps {
     [k: string]: any;
 }
 
-// TODO move/rename this to GeneralPage?
 export interface GenericPageComponentProps extends PageComponentCommonProps { 
     page: ContentObjectModel;   
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getComponent } from '../../components-registry';
 import { WizardFlowComponent } from '../types';
-import { FlowValidAlert, FlowValidationAlerts } from './alerts';
+import { ValidFlowNotification, FlowValidationAlerts } from './notifications';
 import { validateFlowDefinition } from './validation';
 
 const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
@@ -19,7 +19,7 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                     </div>
                 )}
                 {flowDefinitionErrors.length == 0 ? (
-                    <FlowValidAlert
+                    <ValidFlowNotification
                         action={{
                             label: 'Run',
                             url: runFlowUrl

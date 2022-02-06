@@ -3,7 +3,7 @@ title: Yet Another Flow
 layout: WizardFlow
 steps:
   - type: WizardStep
-    title: First Card Reloaded
+    title: First Card
     description: |
       How **you** can work with us, to enable a brighter future!
       Do it now!
@@ -26,7 +26,7 @@ steps:
         maxValue: 10
         defaultValue: 5
   - type: WizardStep
-    title: Second & final card
+    title: Second Card
     description: |
       You still got a _last, final chance_. Seriously, it's the end.
     controls:

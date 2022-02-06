@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { ApiUserData, deleteUserFlowData } from '../../utils/api-types';
 import Link from 'next/link';
+import { ApiUserData, deleteUserFlowData } from '../../utils/api-types';
 
 interface UserProfileCardProps {
     userData: ApiUserData;

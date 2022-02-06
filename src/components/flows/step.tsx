@@ -56,14 +56,20 @@ const WizardStep: WizardStepComponent = (props) => {
     return (
         <div className="card shadow-lg bg-base-100 m-5 w-[600px]" {...getDataAttrs(props)}>
             <div className="card-body">
-                {renderHeader(props)}
-                {props.controls && renderControls(props, controlStates, onControlValueChange)}
+                <StepHeader {...props} />
+                {props.controls && (
+                    <StepControls
+                        step={props}
+                        controlStates={controlStates}
+                        onValueChange={onControlValueChange}
+                    />
+                )}
             </div>
         </div>
     );
 };
 
-function renderHeader(props: WizardStepProps) {
+function StepHeader(props: WizardStepProps) {
     return (
         <div>
             <h2 className="card-title" data-sb-field-path=".title">
@@ -76,14 +82,14 @@ function renderHeader(props: WizardStepProps) {
     );
 }
 
-function renderControls(
-    props: WizardStepProps,
-    controlStates: WizardControlState[],
-    onValueChange: OnControlValueChange
-) {
+function StepControls(props: {
+    step: WizardStepProps;
+    controlStates: WizardControlState[];
+    onValueChange: OnControlValueChange;
+}) {
     return (
         <div data-sb-field-path=".controls">
-            {props.controls.map((control, index) => {
+            {props.step.controls.map((control, index) => {
                 const Control = getComponent(control.type) as WizardControlComponent;
                 if (!Control) throw new Error(`no component for control type: ${control.type}`);
 
@@ -91,8 +97,8 @@ function renderControls(
                     <div key={index} className="mt-4" data-sb-field-path={`.${index}`}>
                         <Control
                             index={index}
-                            controlState={controlStates[index]}
-                            onValueChange={onValueChange}
+                            controlState={props.controlStates[index]}
+                            onValueChange={props.onValueChange}
                             {...control}
                         />
                     </div>

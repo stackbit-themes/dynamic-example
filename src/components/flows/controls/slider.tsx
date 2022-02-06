@@ -2,7 +2,6 @@ import * as React from 'react';
 import { WizardControlProps, controlValueInitializers, controlStateBuilders } from './types';
 import { WizardSliderControlModel } from '../../../utils/model-types';
 
-// TODO change naming to "flow"?
 const MODEL_NAME = 'WizardSliderControl';
 
 controlValueInitializers[MODEL_NAME] = (control) => {

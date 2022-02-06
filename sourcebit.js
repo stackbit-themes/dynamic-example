@@ -24,7 +24,7 @@ module.exports = {
         {
             module: require('sourcebit-target-next'),
             options: {
-                liveUpdate: true,
+                liveUpdate: isDev,
                 flattenAssetUrls: true,
                 commonProps: (objects) => {
                     const site = objects.find((o) => o.__metadata.modelName === 'SiteConfig');
@@ -51,15 +51,13 @@ module.exports = {
 
                         if (obj.__metadata.sourceName === 'pages') {
                             if (obj.__metadata.modelName === 'WizardFlow') {
-                                // Don't build the flow editor page on live websites
-                                // (even if they are built and visited, editing wouldn't be possible - the content is part of the Git repo)
-                                if (isDev) {
-                                    paths.push({
-                                        urlPath: urlPath,
-                                        routeHandler: 'flows',
-                                        flowAction: 'edit'
-                                    });
-                                }
+                                // For demo purposes, including the flow editor page on live websites -
+                                // althought they can't be edited outside the Stackbit application (or in the Git repo directly)
+                                paths.push({
+                                    urlPath: urlPath,
+                                    routeHandler: 'flows',
+                                    flowAction: 'edit'
+                                });
                                 paths.push({
                                     urlPath: urlPath + '/run',
                                     routeHandler: 'flows',

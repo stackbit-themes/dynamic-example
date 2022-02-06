@@ -1,15 +1,15 @@
 import * as React from 'react';
-import BaseLayout from '../../components/pageLayouts/base';
+import BaseLayout from '../../components/pageLayouts/base/base';
 import {
     WizardFlowMetadataModel,
     WizardFlowModel,
     PageComponentCommonProps
 } from '../../utils/model-types';
 import { staticPagePaths, staticPropsFor } from '../../utils/common/page-props-helper';
-import WizardFlowEditor from '../../components/wizard/editor/editor';
-import WizardFlowRunner from '../../components/wizard/runner/runner';
+import WizardFlowEditor from '../../components/flows/editor/editor';
+import WizardFlowRunner from '../../components/flows/runner/runner';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import { WizardFlowComponent } from '../../components/wizard/types';
+import { WizardFlowComponent } from '../../components/flows/types';
 
 interface SingleFlowPageProps extends PageComponentCommonProps {
     page: WizardFlowModel;

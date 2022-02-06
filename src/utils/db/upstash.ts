@@ -20,7 +20,6 @@ export async function set(k: string, v: any, expirySeconds?: number): Promise<vo
     let endpoint = `https://${upstashHost}/set/${encodeURIComponent(k)}`;
     if (expirySeconds) endpoint = `${endpoint}?EX=${expirySeconds}`;
 
-    console.log(`SET k: ${k}, v: ${JSON.stringify(v)}`)
     const res = await fetch(endpoint, {
         method: 'POST',
         body: JSON.stringify(v),
@@ -28,17 +27,14 @@ export async function set(k: string, v: any, expirySeconds?: number): Promise<vo
             Authorization: "Bearer " + upstashToken
         }
     });
-    const json = await res.json(); // TODO check response
-    console.log("SET result", json)
+    const json = await res.json();
 }
 
 export async function del(k: string): Promise<void> {
-    console.log(`DEL k: ${k}`);
     const res = await fetch(`https://${upstashHost}/del/${encodeURIComponent(k)}`, {
         headers: {
             Authorization: "Bearer " + upstashToken
         }
     });
-    const json = await res.json(); // TODO check response
-    console.log("DEL result", json)
+    const json = await res.json();
 }

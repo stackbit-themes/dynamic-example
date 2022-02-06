@@ -1,11 +1,7 @@
-import {
-    PageComponentCommonProps,
-    WizardFlowModel,
-    WizardStepModel
-} from '../../utils/model-types';
+import { WizardFlowModel, WizardStepModel } from '../../utils/model-types';
 import { WizardControlValue } from './controls/types';
 
-export type VariableValuesMap = Record<string, WizardControlValue>;
+export type VariableValues = Record<string, WizardControlValue>;
 
 export interface WizardFlowComponentProps {
     flow: WizardFlowModel;

@@ -14,9 +14,8 @@ const groupBadgeInfo: Record<UserGroup, { label: string; badgeClass: string }> =
     anonymous: { label: 'anonymous users', badgeClass: 'badge-secondary' }
 };
 
-const baseClassNames = 'card shadow-lg w-3/4 p-5 bg-base-100';
-
 export const BaseSection: BaseSectionComponent = (props) => {
+    const baseClassNames = 'card shadow-lg w-3/4 p-5 bg-base-100';
     const classNames = `${baseClassNames} ${props.additionalClassNames}`;
     const badgeInfo = groupBadgeInfo[props.userGroup];
 

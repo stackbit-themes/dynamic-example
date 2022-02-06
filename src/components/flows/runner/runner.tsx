@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
-import { getComponent } from '../../../components/components-registry';
-import {
-    VariableValuesMap,
-    WizardFlowComponent,
-    WizardStepComponent
-} from '../../../components/wizard/types';
+import { getComponent } from '../../components-registry';
+import { VariableValues, WizardFlowComponent, WizardStepComponent } from '../types';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { storeUserFlowData } from '../../../utils/api-types';
@@ -15,17 +11,12 @@ const WizardFlowRunner: WizardFlowComponent = ({ flow }) => {
 
     const [currStep, setCurrStep] = React.useState(0);
     const [currStepIsValid, setCurrStepIsValid] = React.useState(false);
-    const variableValues = React.useRef<VariableValuesMap>({});
+    const variableValues = React.useRef<VariableValues>({});
     const steps = flow.steps || [];
 
-    function handleVarsChange(stepVariableValues: VariableValuesMap) {
+    function handleVarsChange(stepVariableValues: VariableValues) {
         variableValues.current = { ...variableValues.current, ...stepVariableValues };
-        //console.log('Updated vars:', variableValues.current);
     }
-
-    useEffect(() => {
-        console.log('Rendered flow'); // TODO remove - just to track un-needed renders
-    });
 
     function handleStepValidityChange(isValid) {
         if (isValid != currStepIsValid) console.log('Step validity changed:', isValid);

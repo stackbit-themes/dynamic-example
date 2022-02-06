@@ -1,8 +1,6 @@
+import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import * as React from 'react';
-
-// TODO make this more generic? anyway change names...
 
 export function FlowValidationAlerts(props: { errorMessages: string[] }) {
     console.log('Errors:', props);
@@ -33,7 +31,7 @@ export function FlowValidationAlerts(props: { errorMessages: string[] }) {
         </div>
     );
 }
-export function FlowValidAlert(props: { action?: { label: string; url: string } }) {
+export function ValidFlowNotification(props: { action?: { label: string; url: string } }) {
     const router = useRouter();
     return (
         <div className="alert alert-info mb-4 mx-8">

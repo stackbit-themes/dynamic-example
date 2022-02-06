@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
+import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { HeaderModel } from '../../../utils/model-types';
-import Link from 'next/link';
 
-// TODO work on this - allow editing logo, brand and links (label+URL)
 const Header: React.FunctionComponent<HeaderModel> = (props) => {
     return (
         <>
@@ -12,6 +11,7 @@ const Header: React.FunctionComponent<HeaderModel> = (props) => {
                 <div className="flex-none hidden lg:flex">
                     <HamburgerMenu />
                 </div>
+
                 <div className="flex-1 hidden pr-2 mx-2 lg:flex">
                     <span className="text-lg font-bold">
                         <Link href="/">
@@ -27,8 +27,6 @@ const Header: React.FunctionComponent<HeaderModel> = (props) => {
         </>
     );
 };
-
-export default Header;
 
 function HamburgerMenu() {
     return (
@@ -91,9 +89,7 @@ function SessionControls() {
             </div>
         </>
     ) : (
-        <>
-            <button onClick={() => signIn()}>Sign in</button>
-        </>
+        <button onClick={() => signIn()}>Sign in</button>
     );
 }
 
@@ -132,3 +128,5 @@ function HamburgerIcon() {
         </svg>
     );
 }
+
+export default Header;

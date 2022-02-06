@@ -1,5 +1,5 @@
-import { WizardControlValue } from "../components/wizard/controls/types";
-import { VariableValuesMap } from "../components/wizard/types";
+import { WizardControlValue } from "../components/flows/controls/types";
+import { VariableValues } from "../components/flows/types";
 
 export interface ApiBaseResponse {
     success: boolean;
@@ -14,7 +14,7 @@ export interface ApiUserData {
     name?: string;
     email?: string;
     image?: string;
-    flowData?: VariableValuesMap;
+    flowData?: VariableValues;
 }
 
 export async function deleteUserFlowData() {
@@ -24,7 +24,7 @@ export async function deleteUserFlowData() {
     });
 }
 
-export async function storeUserFlowData(variableValues: VariableValuesMap) {
+export async function storeUserFlowData(variableValues: VariableValues) {
     console.log('storeUserFlowData', variableValues);
     await fetch('/api/userFlow', {
         method: 'POST',

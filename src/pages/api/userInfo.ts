@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
 import { ApiUserResponse } from '../../utils/api-types'
-import { fetchUserFlow, storeUserFlow } from '../../utils/db/user-service'
+import { fetchUserFlow } from '../../utils/db/user-service'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<ApiUserResponse>) => {
     const session = await getSession({ req })
@@ -19,8 +19,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<ApiUserResponse
             flowData: flowData
         }
       }
-      //console.log("userInfo send response: ", response);
-
       res.send(response);
     } else {
       res.send({success: false, errorMessage: "You are not signed in"})

@@ -1,18 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
-import BaseLayout from '../base';
-import { getComponent } from '../../components-registry';
+import BaseLayout from './base/base';
+import { getComponent } from '../components-registry';
 import {
     BaseSectionModel,
     GeneralPageModel,
     PageComponentCommonProps,
     UserGroup
-} from '../../../utils/model-types';
-import { isDev } from '../../../utils/common/page-utils';
+} from '../../utils/model-types';
+import { isDev } from '../../utils/common/page-utils';
 import { useSession } from 'next-auth/react';
-import emptyStateImage from '../../../../public/images/cactus.png';
+import emptyStateImage from '../../../public/images/cactus.png';
 import Image from 'next/image';
-import { BaseSectionComponent } from '../../sections/base-section';
+import { BaseSectionComponent } from '../sections/base-section';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 
 interface GeneralPageProps extends PageComponentCommonProps {
@@ -23,8 +23,8 @@ const GeneralPage: React.FunctionComponent<GeneralPageProps> = ({ page, site }) 
     const [showAllGroupsContent, setShowAllGroupsContent] = React.useState(false);
     const sections = page.sections || [];
 
-    // TODO Reproduce with a bare-bones example and investiage/create issue
-    // This seems to happen only when navigating back from the signIn() page, which is not wrapped in next/link
+    // This seems to happen only when navigating back from the next-auth signIn() page,
+    // which is not wrapped in next/link (TODO: investigate further).
     const checkboxRef = React.useRef<HTMLInputElement>();
     React.useEffect(() => {
         const groupsCheckboxValue = checkboxRef.current.checked;

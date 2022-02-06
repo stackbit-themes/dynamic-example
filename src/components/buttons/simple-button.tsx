@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import * as React from 'react';
+import Link from 'next/link';
 import { SimpleButtonModel } from '../../utils/model-types';
 
 const SimpleButton: React.FunctionComponent<SimpleButtonModel> = (props) => {

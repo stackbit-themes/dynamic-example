@@ -1,13 +1,13 @@
+import * as React from 'react';
 import dynamic from 'next/dynamic';
-import React from 'react';
 import { ContentObjectModel } from '../utils/common/base-model-types';
 import SignInButton from './buttons/signin-button';
 import SimpleButton from './buttons/simple-button';
-import WizardImageSelectControl from './wizard/controls/image-select';
-import WizardSliderControl from './wizard/controls/slider';
-import WizardTextControl from './wizard/controls/text';
+import WizardImageSelectControl from './flows/controls/image-select';
+import WizardSliderControl from './flows/controls/slider';
+import WizardTextControl from './flows/controls/text';
 
-export function getComponent(key: string, throwError: boolean = true): React.FunctionComponent<ContentObjectModel>|null {
+export function getComponent(key: string, throwError: boolean = true): React.FC|null {
     const component = components[key];
     if (!component && throwError)
         throw new Error(`No component registered for key: ${key}`)
@@ -16,7 +16,7 @@ export function getComponent(key: string, throwError: boolean = true): React.Fun
 
 const components = {
     'GeneralPage': dynamic(() => import('./pageLayouts/general')),
-    'WizardStep': dynamic(() => import('./wizard/step')),
+    'WizardStep': dynamic(() => import('./flows/step')),
     'SimpleTextSection': dynamic(() => import('./sections/simple-text-section')),
     'WizardTextControl': WizardTextControl,
     'WizardSliderControl': WizardSliderControl,

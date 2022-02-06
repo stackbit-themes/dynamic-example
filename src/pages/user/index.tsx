@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import { Session } from 'next-auth';
 import AccessDenied from '../../components/access-denied';
 import { ApiUserResponse } from '../../utils/api-types';
-import BaseLayout from '../../components/pageLayouts/base';
+import BaseLayout from '../../components/pageLayouts/base/base';
 import { SiteConfigModel } from '../../utils/model-types';
 import { urlPathOfContent } from '../../utils/common/page-props-helper';
 import UserProfileCard from '../../components/user/user-profile-card';
