@@ -26,7 +26,6 @@ providers.forEach((provider) => {
     }
 })
 
-const nextAuthSecret = ;
 export default NextAuth({
     providers,
     secret: process.env.NEXTAUTH_SECRET
