@@ -1,5 +1,10 @@
-const upstashHost = process.env.UPSTASH_REDIS_HOST;
-const upstashToken = process.env.UPSTASH_REDIS_TOKEN;
+import { isDev } from "../common/page-utils";
+
+const upstashHost = isDev ? process.env.DEV_UPSTASH_REDIS_HOST : process.env.PROD_UPSTASH_REDIS_HOST;
+const upstashToken = isDev ? process.env.DEV_UPSTASH_REDIS_TOKEN : process.env.PROD_UPSTASH_REDIS_HOST;
+
+if (!upstashHost || !upstashToken)
+    console.log(`NOTE: host/token not set for Upstash Redis (is dev: ${isDev})`);
 
 export async function get(k: string): Promise<any | null> {
     const keyName = encodeURIComponent(k);
