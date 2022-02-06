@@ -16,9 +16,12 @@ export async function get(k: string): Promise<any | null> {
     }
 }
 
-export async function set(k: string, v: any): Promise<void> {
+export async function set(k: string, v: any, expirySeconds?: number): Promise<void> {
+    let endpoint = `https://${upstashHost}/set/${encodeURIComponent(k)}`;
+    if (expirySeconds) endpoint = `${endpoint}?EX=${expirySeconds}`;
+
     console.log(`SET k: ${k}, v: ${JSON.stringify(v)}`)
-    const res = await fetch(`https://${upstashHost}/set/${encodeURIComponent(k)}`, {
+    const res = await fetch(endpoint, {
         method: 'POST',
         body: JSON.stringify(v),
         headers: {

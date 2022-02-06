@@ -1,13 +1,16 @@
 import { VariableValuesMap } from "../../components/wizard/types";
 import { del, get, set } from "./upstash";
 
+// By default, auto-expire user flow data after 7 days
+const USER_DATA_EXPIRY_SECONDS = parseInt(process.env.USER_DATA_EXPIRY_SECONDS) || 604800;
+
 function userFlowKey(email: string) {
     return `user:${email}:flow-variables`;
 }
 
 export async function storeUserFlow(email: string, variablesValues: VariableValuesMap) {
     const v = JSON.stringify(variablesValues);
-    await set(userFlowKey(email), variablesValues);
+    await set(userFlowKey(email), variablesValues, USER_DATA_EXPIRY_SECONDS);
 }
 
 export async function deleteUserFlow(email: string) {
