@@ -1,10 +1,17 @@
+import { isDev } from '../../../utils/common/page-utils';
 import { WizardFlowModel } from '../../../utils/model-types';
 
 export function validateFlowDefinition(flow: WizardFlowModel): string[] {
     let errors: string[] = [];
+    
+    if (!isDev) {
+        errors.push('Editing flows is not available in production mode. Please edit this page in Stackbit :-)');
+        return errors;
+    }
+    
     if (!flow.steps) {
         errors.push('Flow should have at least one step');
-        return;
+        return errors;
     }
 
     let variableNames: string[] = [];
