@@ -28,10 +28,11 @@ providers.forEach((provider) => {
 
 let nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (!nextAuthSecret) {
-    console.log(`NOTE: NEXTAUTH_SECRET not set! using a default value which is NOT GOOD (is dev: ${isDev})')
+    console.log(`NOTE: NEXTAUTH_SECRET not set! using a default value which is NOT GOOD (is dev: ${isDev})`);
     nextAuthSecret = 'FRZZrUI2BprpVUYnDZNnjffVKEYTxwZ9VPDGQxQWcDw='
 }
 
-export default NextAuth({ 
-    providers, 
-    secret: process.env.NEXTAUTH_SECRET || '' });
+export default NextAuth({
+    providers,
+    secret: process.env.NEXTAUTH_SECRET || ''
+});
