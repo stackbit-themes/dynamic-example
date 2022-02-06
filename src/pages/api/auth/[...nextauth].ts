@@ -34,5 +34,5 @@ if (!nextAuthSecret) {
 
 export default NextAuth({
     providers,
-    secret: process.env.NEXTAUTH_SECRET || ''
+    secret: nextAuthSecret
 });
