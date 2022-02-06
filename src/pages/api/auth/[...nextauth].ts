@@ -27,4 +27,5 @@ providers.forEach((provider) => {
 })
 
 export default NextAuth({ 
-    providers, secret: 'sdflkj7dsfslkjasdsaduy76758ad' });
+    providers, 
+    secret: 'sdflkj7dsfslkjasdsaduy76758ad' });
