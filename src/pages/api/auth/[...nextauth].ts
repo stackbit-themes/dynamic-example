@@ -27,7 +27,9 @@ providers.forEach((provider) => {
 })
 
 let nextAuthSecret = process.env.NEXTAUTH_SECRET;
-
+if (!nextAuthSecret) {
+    
+}
 export default NextAuth({ 
     providers, 
     secret: process.env.NEXTAUTH_SECRET || '' });
