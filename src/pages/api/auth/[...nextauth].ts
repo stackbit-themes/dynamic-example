@@ -28,4 +28,4 @@ providers.forEach((provider) => {
 
 export default NextAuth({ 
     providers, 
-    secret: process.env.NEXTAUTH_SECRET || 'sdflkj7dsfslkjasdsaduy76758ad' });
+    secret: process.env.NEXTAUTH_SECRET || '' });
