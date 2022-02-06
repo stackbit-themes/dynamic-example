@@ -28,6 +28,7 @@ providers.forEach((provider) => {
 
 let nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (!nextAuthSecret && !isDev) {
+    // TODO get rid of this (and ofc don't use this secret)
     console.log('NOTE: NEXTAUTH_SECRET not set in production! using a default value which is NOT GOOD');
     nextAuthSecret = 'FRZZrUI2BprpVUYnDZNnjffVKEYTxwZ9VPDGQxQWcDw='
 }

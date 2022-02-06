@@ -57,23 +57,23 @@ function Sections(props: { sections: BaseSectionModel[]; showAllGroupsContent: b
     const { sections, showAllGroupsContent } = props;
     const { data: session } = useSession();
     const relevantUserGroups: UserGroup[] = ['everyone', session ? 'loggedIn' : 'anonymous'];
-
-    const relevantSections = showAllGroupsContent
-        ? sections
-        : sections.filter((section) => relevantUserGroups.includes(section.userGroup));
     const showGroupBadge = showAllGroupsContent;
 
     return (
         <div key="sections" data-sb-field-path="sections" className="flex flex-col gap-4 m-10">
             {sections.length > 0 ? (
-                relevantSections.map((section, index) => {
+                sections.flatMap((section, indexInContent) => {
+                    const visible =
+                        showAllGroupsContent || relevantUserGroups.includes(section.userGroup);
+                    if (!visible) return null;
                     const Component = getComponent(section.type) as BaseSectionComponent;
+                    // Even when skipping sections, the field-path annotation points to the correct index in the sections list
                     return (
                         <Component
-                            key={index}
+                            key={indexInContent}
                             {...section}
                             showGroupBadge={showGroupBadge}
-                            data-sb-field-path={`sections.${index}`}
+                            data-sb-field-path={`sections.${indexInContent}`}
                         />
                     );
                 })
