@@ -26,7 +26,7 @@ sections:
       text: Go to profile
       link: /user
   - type: SimpleTextSection
-    title: About to the Dynamic Example App
+    title: About the Dynamic Example App
     content: >
       What's inside:
 
