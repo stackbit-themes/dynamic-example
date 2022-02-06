@@ -65,7 +65,6 @@ function HamburgerMenu() {
 
 function SessionControls() {
     const { data: session } = useSession();
-    if (session) console.log('Session', session);
     return session ? (
         <>
             <div className="mr-2">{session.user.name}</div>

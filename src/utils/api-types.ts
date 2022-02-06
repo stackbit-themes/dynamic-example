@@ -18,7 +18,6 @@ export interface ApiUserData {
 }
 
 export async function deleteUserFlowData() {
-    console.log('deleteUserFlowData');
     await fetch('/api/userFlow', {
         method: 'DELETE'
     });

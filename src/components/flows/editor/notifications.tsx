@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export function FlowValidationAlerts(props: { errorMessages: string[] }) {
-    console.log('Errors:', props);
     return (
         <div>
             {props.errorMessages.map((err, index) => {

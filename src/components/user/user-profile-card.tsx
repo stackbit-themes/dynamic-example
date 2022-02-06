@@ -68,7 +68,6 @@ const UserProfileCard: React.FunctionComponent<UserProfileCardProps> = ({
 };
 
 function UserFlowData({ userData }: { userData: ApiUserData }) {
-    console.log(userData.flowData);
     return (
         <>
             <div className="text-md font-bold">My answers to the flow:</div>

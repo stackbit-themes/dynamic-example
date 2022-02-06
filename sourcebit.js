@@ -73,7 +73,6 @@ module.exports = {
                             return addMetadata(obj, metadata);
                         });
                     });
-                    //console.log('pages', pages);
                     return pages;
                 }
             }
