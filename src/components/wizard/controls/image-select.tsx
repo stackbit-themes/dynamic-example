@@ -43,7 +43,7 @@ const WizardImageSelectControl: React.FunctionComponent<WizardControlProps> = (p
             <label className="label">
                 <span className="label-text">{props.label}</span>
             </label>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 w-full">
                 {images.map((item, i) => (
                     <ImageItem
                         key={i}

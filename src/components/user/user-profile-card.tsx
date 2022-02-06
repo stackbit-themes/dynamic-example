@@ -58,7 +58,7 @@ const UserProfileCard: React.FunctionComponent<UserProfileCardProps> = ({
                 ) : (
                     <Link href="/flows/uno/run?to=/user">
                         <a>
-                            <button className="btn btn-sm">Onboard me</button>
+                            <button className="btn btn-primary">OMG Onboard me!</button>
                         </a>
                     </Link>
                 )}

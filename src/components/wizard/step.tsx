@@ -54,10 +54,7 @@ const WizardStep: WizardStepComponent = (props) => {
     });
 
     return (
-        <div
-            className="card shadow-lg bg-base-100 m-5 min-w-[600px] max-w-screen-md"
-            {...getDataAttrs(props)}
-        >
+        <div className="card shadow-lg bg-base-100 m-5 w-[600px]" {...getDataAttrs(props)}>
             <div className="card-body">
                 {renderHeader(props)}
                 {props.controls && renderControls(props, controlStates, onControlValueChange)}

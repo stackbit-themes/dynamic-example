@@ -1,13 +1,11 @@
 ---
-title: Flow Numero Uno
+title: Uno Flow
 layout: WizardFlow
 steps:
   - type: WizardStep
-    title: First Card
+    title: The basics
     description: |
-      How **you** can work with us, to enable a brighter future!
-
-      Do it now!
+      This card is for _us_ to get to know **you**!
     controls:
       - type: WizardTextControl
         required: true
@@ -16,46 +14,25 @@ steps:
         minLength: 3
       - type: WizardTextControl
         required: false
-        label: Not essential
+        label: Some non essential detail
         variableName: notEssentialString
-        minLength: 1
       - type: WizardSliderControl
         required: true
-        label: Awesomeness factor
+        label: Your awesomeness factor
         variableName: awesomeness
         minValue: 0
         maxValue: 10
         defaultValue: 5
   - type: WizardStep
-    title: And now for the second card
+    title: Getting to know you
     description: |
-      You still got a _chance_, good luck to you on your journey!
-    controls:
-      - type: WizardTextControl
-        required: true
-        label: 'How shall we call you, again?'
-        variableName: nickname2
-        minLength: 3
-      - type: WizardTextControl
-        required: false
-        label: Also not essential
-        variableName: notEssentialString2
-        minLength: 1
-      - type: WizardSliderControl
-        required: true
-        label: 'Awesomeness factor, reloaded'
-        variableName: awesomeness2
-        minValue: 0
-        maxValue: 10
-        defaultValue: 5
-  - type: WizardStep
-    title: The final one
-    description: |
-      You still got a _last, final chance_. Seriously, it's the end.
+      We'd like to get to know your taste in music for, for a better experience.
+
+      _(actually, it's a demo and all user data auto-expires...)_
     controls:
       - type: WizardImageSelectControl
         required: false
-        label: 'What kinds of music you like?'
+        label: What kinds of music do you like?
         variableName: musicGenres
         images:
           - type: ImageSelectItem
@@ -74,4 +51,12 @@ steps:
             image: /images/music/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpg
             label: Electronic
             value: electronic
+  - type: WizardStep
+    title: A final step
+    description: |
+      Just so we have three, really...
+    controls:
+      - type: WizardTextControl
+        label: 'Do you have an alternative nickname?'
+        variableName: altNickname
 ---

@@ -34,7 +34,7 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                         const Component = getComponent(stepType);
                         return (
                             <div className="flex m-6" key={index}>
-                                <div className="text-8xl p-4">{index + 1}</div>
+                                <div className="text-8xl p-4 w-20">{index + 1}</div>
                                 <Component {...step} data-sb-field-path={`.${index}`} />
                             </div>
                         );
