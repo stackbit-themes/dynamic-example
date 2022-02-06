@@ -36,7 +36,6 @@ const WizardFlowRunner: WizardFlowComponent = ({ flow }) => {
         } else {
             console.log('Finished flow successfully!', variableValues.current);
             if (session) {
-                // TODO support store=(true|false) query param?
                 await storeUserFlowData(variableValues.current);
             }
             if (

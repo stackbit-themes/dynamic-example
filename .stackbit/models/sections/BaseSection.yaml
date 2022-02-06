@@ -1,4 +1,3 @@
-# TODO: doc meant to be abstract (therefore it's not in any group in itself)
 name: BaseSection
 label: Base section
 fields:

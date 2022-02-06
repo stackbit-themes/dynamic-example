@@ -30,7 +30,6 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     }
 };
 
-// TODO show variable name (as placeholder, if requested)
 const WizardTextControl: React.FunctionComponent<WizardControlProps> = (props) => {
     return (
         <div className="form-control">

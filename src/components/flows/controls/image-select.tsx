@@ -23,7 +23,6 @@ controlStateBuilders[MODEL_NAME] = (control, newValue) => {
     }
 };
 
-// TODO show variable name (as placeholder, if requested)
 const WizardImageSelectControl: React.FunctionComponent<WizardControlProps> = (props) => {
     const images = (props as unknown as WizardImageSelectControlModel).images;
     const selectedItems = (props.controlState.value as string[]) || [];
