@@ -50,7 +50,7 @@ function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlo
     if (!apiUserResponse) {
         return null;
     } else if (!apiUserResponse.success || !apiUserResponse.user) {
-        return null; // TODO show more informative alert (and handle fetch failures above)
+        return null;
     } else {
         return (
             <div className="flex justify-center m-6">
@@ -68,9 +68,6 @@ function UserProfile({ session, defaultFlowUrl }: { session: Session; defaultFlo
 
 export default UserPage;
 
-/*
-    TODO document this case (specific route w/o content object, but adding content props)
-*/
 export async function getStaticProps() {
     const commonProps = await getContentCommonProps();
     const defaultFlow = commonProps.site.defaultFlow;

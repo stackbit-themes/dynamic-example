@@ -30,7 +30,7 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                 )}
                 <div data-sb-field-path=".steps">
                     {steps.map((step, index) => {
-                        const stepType = step.type || 'WizardStep'; // TODO open task - type not stored by studio
+                        const stepType = step.type || 'WizardStep';
                         const Component = getComponent(stepType);
                         return (
                             <div className="flex m-6" key={index}>

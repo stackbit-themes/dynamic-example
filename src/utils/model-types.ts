@@ -70,7 +70,7 @@ export interface SimpleTextSectionModel extends BaseSectionModel {
 
 export interface SiteConfigModel extends ContentObjectModel {
     favicon?: string;
-    defaultFlow?: WizardFlowModel|string; // TODO doc
+    defaultFlow?: WizardFlowModel|string;
     header?: HeaderModel;
 }
 
