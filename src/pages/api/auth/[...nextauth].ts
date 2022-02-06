@@ -33,6 +33,7 @@ if (!nextAuthSecret && !isDev) {
     console.log('NOTE: NEXTAUTH_SECRET not set in production! using a default value which is NOT GOOD');
     nextAuthSecret = 'FRZZrUI2BprpVUYnDZNnjffVKEYTxwZ9VPDGQxQWcDw='
 }
+*/
 
 export default NextAuth({
     providers,
