@@ -28,7 +28,7 @@ providers.forEach((provider) => {
 
 let nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (!nextAuthSecret) {
-    console.log('NEXTAUTH_SECRET not set! using a default value - NOT GOOD), (is dev: ${isDev})')
+    console.log('NEXTAUTH_SECRET not set! using a default value - NOT GOOD, (is dev: ${isDev})')
     nextAuthSecret = 'FRZZrUI2BprpVUYnDZNnjffVKEYTxwZ9VPDGQxQWcDw='
 }
 
