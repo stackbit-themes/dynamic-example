@@ -1,0 +1,12 @@
+name: WizardImageSelectControl
+label: Images selector control
+extends: [WizardControl]
+groups: [wizardControls]
+fields:
+  - type: list
+    name: images
+    label: Images
+    items:
+      type: model
+      models: [ImageSelectItem]
+    default: []

@@ -3,6 +3,7 @@ import React from 'react';
 import { ContentObjectModel } from '../utils/common/base-model-types';
 import SignInButton from './buttons/signin-button';
 import SimpleButton from './buttons/simple-button';
+import WizardImageSelectControl from './wizard/controls/image-select';
 import WizardSliderControl from './wizard/controls/slider';
 import WizardTextControl from './wizard/controls/text';
 
@@ -19,6 +20,7 @@ const components = {
     'SimpleTextSection': dynamic(() => import('./sections/simple-text-section')),
     'WizardTextControl': WizardTextControl,
     'WizardSliderControl': WizardSliderControl,
+    'WizardImageSelectControl': WizardImageSelectControl,
     'SimpleButton': SimpleButton,
     'SignInButton': SignInButton
 };

@@ -79,7 +79,7 @@ function UserFlowData({ userData }: { userData: ApiUserData }) {
                         return (
                             <div key={index}>
                                 <span>{`${k}: `}</span>
-                                <span>{v}</span>
+                                <span>{JSON.stringify(v)}</span>
                             </div>
                         );
                     })}

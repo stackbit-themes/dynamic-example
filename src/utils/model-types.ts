@@ -17,6 +17,16 @@ export interface WizardSliderControlModel extends WizardControlModel {
     maxValue: number;
 }
 
+export interface WizardImageItemlModel extends WizardControlModel {
+    image: string;
+    label: string;
+    value: string;
+}
+
+export interface WizardImageSelectControlModel extends WizardControlModel {
+    images: WizardImageItemlModel[];
+}
+
 export interface WizardStepModel extends ContentObjectModel {
     title: string;
     description?: string;

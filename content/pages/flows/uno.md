@@ -53,8 +53,25 @@ steps:
     description: |
       You still got a _last, final chance_. Seriously, it's the end.
     controls:
-      - type: WizardTextControl
+      - type: WizardImageSelectControl
         required: false
-        label: 'Any last words, chap?'
-        variableName: nickname3
+        label: 'What kinds of music you like?'
+        variableName: musicGenres
+        images:
+          - type: ImageSelectItem
+            image: /images/music/harry-swales-0l0KjNoAfAk-unsplash.jpg
+            label: Rap / Hip hop
+            value: rapHiphop
+          - type: ImageSelectItem
+            image: /images/music/hector-bermudez-iIWDt0fXa84-unsplash.jpg
+            label: Rock / Metal
+            value: rockMetal
+          - type: ImageSelectItem
+            image: /images/music/larisa-birta-slbOcNlWNHA-unsplash.jpg
+            label: Classical
+            value: classical
+          - type: ImageSelectItem
+            image: /images/music/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpg
+            label: Electronic
+            value: electronic
 ---

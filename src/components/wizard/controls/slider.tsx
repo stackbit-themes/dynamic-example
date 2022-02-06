@@ -5,7 +5,6 @@ import { WizardSliderControlModel } from '../../../utils/model-types';
 // TODO change naming to "flow"?
 const MODEL_NAME = 'WizardSliderControl';
 
-// TODO get this out (also so component can be loaded dynamically)
 controlValueInitializers[MODEL_NAME] = (control) => {
     return (control as WizardSliderControlModel).defaultValue;
 };

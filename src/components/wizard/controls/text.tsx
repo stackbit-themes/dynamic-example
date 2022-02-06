@@ -4,7 +4,6 @@ import { WizardControlProps, controlValueInitializers, controlStateBuilders } fr
 
 const MODEL_NAME = 'WizardTextControl';
 
-// TODO get this out (also so component can be loaded dynamically)
 controlValueInitializers[MODEL_NAME] = (control) => {
     return '';
 };
