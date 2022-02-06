@@ -31,7 +31,7 @@
         "tailwindcss": "^2.2.4"
     },
     "devDependencies": {
-        "@netlify/plugin-nextjs": "^4.2.4",
+        "@netlify/plugin-nextjs": "4.2.1",
         "@next/bundle-analyzer": "^11.1.2",
         "@stackbit/cli": "^0.1.25",
         "@types/react": "^17.0.37",
