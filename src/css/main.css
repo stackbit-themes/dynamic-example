@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.markdown * {
+    margin-bottom: 0.4rem;
+}
+
+.markdown ol,
+ul {
+    list-style: auto;
+    padding-left: 1rem;
+}
+
+.markdown a {
+    text-decoration: underline;
+}

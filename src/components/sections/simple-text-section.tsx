@@ -31,7 +31,7 @@ const SimpleTextSection: React.FunctionComponent<SimpleTextSectionProps> = (prop
                     <div className="flex justify-center">
                         <Markdown
                             options={{ forceBlock: true }}
-                            className=""
+                            className="markdown max-w-[85%]"
                             data-sb-field-path=".content"
                         >
                             {props.content}
