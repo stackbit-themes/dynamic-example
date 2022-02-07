@@ -9,7 +9,7 @@ export function validateFlowDefinition(flow: WizardFlowModel): string[] {
         return errors;
     }
     
-    if (!flow.steps) {
+    if (!flow.steps?.length) {
         errors.push('Flow should have at least one step');
         return errors;
     }
