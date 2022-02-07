@@ -11,7 +11,7 @@ steps:
         type: WizardTextControl
       - required: true
         label: Some label
-        variableName: ''
+        variableName: some
         minValue: 0
         maxValue: 100
         defaultValue: 50
