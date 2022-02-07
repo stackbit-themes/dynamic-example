@@ -5,7 +5,7 @@ steps:
     description: Markdown-based description
     controls:
       - required: true
-        label: Label for this control
+        label: Some text
         variableName: ''
         minLength: 1
         type: WizardTextControl
