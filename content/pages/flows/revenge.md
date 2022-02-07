@@ -21,7 +21,7 @@ steps:
     controls:
       - required: true
         label: Label for this control
-        variableName: ''
+        variableName: images
         images:
           - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
             label: 'Default Cacti :-)'
