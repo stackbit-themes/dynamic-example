@@ -66,7 +66,7 @@ function Sections(props: { sections: BaseSectionModel[]; showAllGroupsContent: b
                     const visible =
                         showAllGroupsContent || relevantUserGroups.includes(section.userGroup);
                     if (!visible) return null;
-                    // TODO remove this when Stack issue is solved (type not stored when only one model is in group)
+                    // TODO remove this when Stack issue is solved (type not stored when only one model is actually accepted by list field)
                     const sectionType = section.type || 'SimpleTextSection';
                     const Component = getComponent(sectionType) as BaseSectionComponent;
                     // Even when skipping sections, the field-path annotation points to the correct index in the sections list
