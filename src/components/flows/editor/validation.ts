@@ -22,7 +22,9 @@ export function validateFlowDefinition(flow: WizardFlowModel): string[] {
             step.controls.forEach((control) => {
                 const varName = control.variableName;
                 if (!varName) {
-
+                    errors.push(
+                        `Variable name ${varName} is used for more than one control in this flow`
+                    );
                 } else if (variableNames.includes(varName)) {
                     errors.push(
                         `Variable name ${varName} is used for more than one control in this flow`
