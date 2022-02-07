@@ -3,12 +3,12 @@ import { WizardFlowModel } from '../../../utils/model-types';
 
 export function validateFlowDefinition(flow: WizardFlowModel): string[] {
     let errors: string[] = [];
-    
+
     if (!isDev) {
         errors.push('Editing flows is not available in production mode. Please edit this page in Stackbit :-)');
         return errors;
     }
-    
+
     if (!flow.steps?.length) {
         errors.push('Flow should have at least one step');
         return errors;
@@ -16,7 +16,7 @@ export function validateFlowDefinition(flow: WizardFlowModel): string[] {
 
     let variableNames: string[] = [];
     flow.steps.forEach((step, index) => {
-        if (!step.controls) {
+        if (!step.controls?.length) {
             errors.push(`Step no. ${index + 1} should have at least one control`);
         } else {
             step.controls.forEach((control) => {
