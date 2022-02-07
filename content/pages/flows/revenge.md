@@ -27,7 +27,7 @@ steps:
             label: 'Default Cacti :-)'
             value: cacti
           - image: /images/music/harry-swales-0l0KjNoAfAk-unsplash.jpg
-            label: 'Default Cacti :-)'
+            label: Rapper
             value: cacti
         type: WizardImageSelectControl
 layout: WizardFlow
