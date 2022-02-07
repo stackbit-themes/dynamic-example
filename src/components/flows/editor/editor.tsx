@@ -32,9 +32,9 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                     {steps.map((step, index) => {
                         const stepType = step.type || 'WizardStep';
                         const Component = getComponent(stepType);
-                        const key=`${index}-{step.controls?.length||0}`
+                        const key=`${index}-{step.controls?.length||0}`;
                         return (
-                            <div className="flex m-6" key={index}>
+                            <div className="flex m-6" key={key}>
                                 <div className="text-8xl p-4 w-20">{index + 1}</div>
                                 <Component {...step} data-sb-field-path={`.${index}`} />
                             </div>
