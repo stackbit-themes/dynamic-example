@@ -18,6 +18,11 @@ steps:
         type: WizardSliderControl
   - title: Step title
     description: Markdown-based description
-    controls: []
+    controls:
+      - required: true
+        label: Label for this control
+        variableName: ''
+        images: []
+        type: WizardImageSelectControl
 layout: WizardFlow
 ---
