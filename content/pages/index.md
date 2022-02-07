@@ -27,20 +27,25 @@ sections:
       link: /user
   - type: SimpleTextSection
     title: About the Dynamic Example App
-    content: >
+    content: >+
       What's inside:
 
-      1. Going **beyond static** with logic in the client- and server-side.
 
-      1. Integration with **authentication providers** (via [Next
+      1.  Going **beyond static** with logic in the client- and server-side.
+
+      2.  Using an off-the-shelf library of Tailwind CSS components - the nice
+      [daisyUI.](https://daisyui.com/)
+
+      3.  Integration with **authentication providers** (via [Next
       Auth](https://next-auth.js.org/)) and **databases** (using
       [Upstash](https://upstash.com/)) for functionality tailored to logged-in
       users.
 
-      1. Editing complex [wizard-like flows](/flows) using
+      4.  Editing complex [wizard-like flows](/flows) using
       [Stackbit](https://www.stackbit.com/), providing content creators with a
       guided visual experience for creating and updating flows.
 
-      1. Having multiple Next.js routes pulling data in different ways.
+      5.  Having multiple Next.js routes pulling data in different ways.
+
     userGroup: everyone
 ---
