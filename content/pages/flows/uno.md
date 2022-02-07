@@ -58,9 +58,6 @@ steps:
             image: /images/music/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpg
             label: Electronic
             value: electronic
-          - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
-            label: 'Default Cacti :-)'
-            value: cacti
   - type: WizardStep
     title: A final step
     description: |
