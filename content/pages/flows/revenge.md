@@ -22,7 +22,10 @@ steps:
       - required: true
         label: Label for this control
         variableName: ''
-        images: []
+        images:
+          - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
+            label: 'Default Cacti :-)'
+            value: cacti
         type: WizardImageSelectControl
 layout: WizardFlow
 ---
