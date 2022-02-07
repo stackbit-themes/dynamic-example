@@ -15,7 +15,7 @@ export function validateFlowDefinition(flow: WizardFlowModel): string[] {
     }
 
     let variableNames: string[] = [];
-    flow.steps.forEach((step, index) => {
+    flow.steps.forEach((step, controlIndex) => {
         if (!step.controls?.length) {
             errors.push(`Step no. ${index + 1} should have at least one control`);
         } else {
