@@ -30,7 +30,7 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                     )}
                 <div data-sb-field-path=".steps">
                     {steps.map((step, index) => {
-                        // TODO remove when bug
+                        // TODO remove when bug fixed (type not stored when only one model type matches)
                         const stepType = step.type || 'WizardStep';
                         const Component = getComponent(stepType);
 
