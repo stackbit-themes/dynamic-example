@@ -2,7 +2,7 @@
 title: Home
 layout: GeneralPage
 sections:
-  - userGroup: anonymous
+  - userGroup: loggedIn
     title: A Title
     subtitle: A Subtitle
     content: '**Markdown** text is _possible_ here!'
