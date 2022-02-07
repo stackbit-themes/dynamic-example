@@ -23,7 +23,7 @@ export function validateFlowDefinition(flow: WizardFlowModel): string[] {
                 const varName = control.variableName;
                 if (!varName) {
                     errors.push(
-                        `Control ${control.label} has no variable name`
+                        `Control "${control.label}" in step ${} has no variable name`
                     );
                 } else if (variableNames.includes(varName)) {
                     errors.push(
