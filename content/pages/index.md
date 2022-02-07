@@ -2,11 +2,6 @@
 title: Home
 layout: GeneralPage
 sections:
-  - userGroup: loggedIn
-    title: A Title
-    subtitle: A Subtitle
-    content: '**Markdown** text is _possible_ here!'
-    ctaButton: null
   - type: SimpleTextSection
     title: Hello stranger!
     subtitle: 'To start your journey, we recommend that you sign in.'
