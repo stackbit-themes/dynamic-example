@@ -3,28 +3,32 @@ import * as React from 'react';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { HeaderModel } from '../../../utils/model-types';
+import { getDataAttrs, isEmptyObject, sbFieldPath } from '../../../utils/common/utils';
 
 const Header: React.FunctionComponent<HeaderModel> = (props) => {
+    const annotations = getDataAttrs(props);
+    const shouldAnnotate = !isEmptyObject(annotations);
     return (
-        <>
-            <div className="navbar mb-2 shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-neutral-content">
-                <div className="flex-none hidden lg:flex">
-                    <HamburgerMenu />
-                </div>
-
-                <div className="flex-1 hidden pr-2 mx-2 lg:flex">
-                    <span className="text-lg font-bold">
-                        <Link href="/">
-                            <a>{props.title}</a>
-                        </Link>
-                    </span>
-                </div>
-
-                <div className="flex-none">
-                    <SessionControls />
-                </div>
+        <div
+            {...annotations}
+            className="navbar mb-2 shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-neutral-content"
+        >
+            <div className="flex-none hidden lg:flex">
+                <HamburgerMenu />
             </div>
-        </>
+
+            <div className="flex-1 hidden pr-2 mx-2 lg:flex">
+                <span className="text-lg font-bold">
+                    <Link href="/">
+                        <a {...sbFieldPath(shouldAnnotate ? '.title' : null)}>{props.title}</a>
+                    </Link>
+                </span>
+            </div>
+
+            <div className="flex-none">
+                <SessionControls />
+            </div>
+        </div>
     );
 };
 
