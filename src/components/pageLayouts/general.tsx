@@ -66,6 +66,7 @@ function Sections(props: { sections: BaseSectionModel[]; showAllGroupsContent: b
                     const visible =
                         showAllGroupsContent || relevantUserGroups.includes(section.userGroup);
                     if (!visible) return null;
+                    const sectionType = 
                     const Component = getComponent(section.type) as BaseSectionComponent;
                     // Even when skipping sections, the field-path annotation points to the correct index in the sections list
                     return (
