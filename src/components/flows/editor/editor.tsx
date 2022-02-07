@@ -33,7 +33,7 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                         // TODO remove when bug fixed (type not stored when only one model type matches)
                         const stepType = step.type || 'WizardStep';
                         const Component = getComponent(stepType);
-
+                        // When adding/removing controls in the studio, recreate the
                         const key = `step-${index}-controls-${step.controls?.length || 0}`;
                         return (
                             <div className="flex m-6" key={key}>
