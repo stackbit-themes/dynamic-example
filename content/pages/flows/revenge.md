@@ -26,6 +26,9 @@ steps:
           - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
             label: 'Default Cacti :-)'
             value: cacti
+          - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
+            label: 'Default Cacti :-)'
+            value: cacti
         type: WizardImageSelectControl
 layout: WizardFlow
 ---
