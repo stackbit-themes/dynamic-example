@@ -6,7 +6,7 @@ steps:
     controls:
       - required: true
         label: Some text
-        variableName: ''
+        variableName: someText
         minLength: 1
         type: WizardTextControl
       - required: true
