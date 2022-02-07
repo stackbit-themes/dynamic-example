@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../components-registry';
-import { getDataAttrs } from '../../utils/common/utils';
+import { getDataAttrs, sbFieldPath } from '../../utils/common/utils';
 import {
     buildInitialState,
     OnControlValueChange,
@@ -72,10 +72,10 @@ const WizardStep: WizardStepComponent = (props) => {
 function StepHeader(props: WizardStepProps) {
     return (
         <div>
-            <h2 className="card-title" data-sb-field-path=".title">
+            <h2 className="card-title" {...sbFieldPath(props.annotate ? '.title' : null)}>
                 {props.title}
             </h2>
-            <Markdown className="mb-5" data-sb-field-path=".description">
+            <Markdown className="mb-5" {...sbFieldPath(props.annotate ? '.description' : null)}>
                 {props.description}
             </Markdown>
         </div>
@@ -87,14 +87,19 @@ function StepControls(props: {
     controlStates: WizardControlState[];
     onValueChange: OnControlValueChange;
 }) {
+    const { annotate } = props.step;
     return (
-        <div data-sb-field-path=".controls">
+        <div {...sbFieldPath(annotate ? '.controls' : null)}>
             {props.step.controls.map((control, index) => {
                 const Control = getComponent(control.type) as WizardControlComponent;
                 if (!Control) throw new Error(`no component for control type: ${control.type}`);
 
                 return (
-                    <div key={index} className="mt-4" data-sb-field-path={`.${index}`}>
+                    <div
+                        key={index}
+                        className="mt-4"
+                        {...sbFieldPath(annotate ? `.${index}` : null)}
+                    >
                         <Control
                             index={index}
                             controlState={props.controlStates[index]}
