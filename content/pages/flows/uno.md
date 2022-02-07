@@ -25,7 +25,7 @@ steps:
         defaultValue: 5
       - required: true
         label: Label for this control
-        variableName: ''
+        variableName: awesomeness2
         minValue: 0
         maxValue: 100
         defaultValue: 50
