@@ -2,7 +2,8 @@
 title: Home
 layout: GeneralPage
 sections:
-  - userGroup: everyone
+  - 
+  userGroup: everyone
     title: A Title
     subtitle: A Subtitle
     content: '**Markdown** text is _possible_ here!'
