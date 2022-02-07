@@ -10,7 +10,7 @@ steps:
         minLength: 1
         type: WizardTextControl
       - required: true
-        label: Label for this control
+        label: Some label
         variableName: ''
         minValue: 0
         maxValue: 100
