@@ -6,7 +6,7 @@ steps:
     controls:
       - required: true
         label: Label for this control
-        variableName: ''
+        variableName: varName
         minLength: 1
         type: WizardTextControl
 layout: WizardFlow
