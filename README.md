@@ -10,7 +10,7 @@ Included are some topics we've been asked about by users, plus some that people 
 
 <p align="center">
     <i>
-        Photos by <a href="https://unsplash.com/@harryswales?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Harry Swales</a>, <a href="https://unsplash.com/@hectorbermudez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hector Bermudez</a>, <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a>, <a href="https://unsplash.com/@scottwebb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scott Webb</a>, <a href="https://unsplash.com/@marcelalaskoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcela Laskoski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        Photos by <a href="https://unsplash.com/@harryswales?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Harry Swales</a>, <a href="https://unsplash.com/@hectorbermudez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hector Bermudez</a>, <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a>, <a href="https://unsplash.com/@scottwebb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scott Webb</a> and <a href="https://unsplash.com/@marcelalaskoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcela Laskoski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
     </i>
 </p>
 
@@ -24,21 +24,28 @@ daisyUI is a fun, meticulously-done library of CSS components built on Tailwind.
 
 ### Authentication
 
-We're using the excellent [NextAuth.js](https://next-auth.js.org/) package to allow easy authentication through Google & GitHub as OAuth providers (and you can of course add others). 
+We're using the excellent [NextAuth.js](https://next-auth.js.org/) package to allow easy authentication through Google & GitHub as OAuth providers.
 
 This is used to protect pages and API routes behind authentication, to pull the user's basic details (e-mail, name and image) for display and to be able to store & fetch per-user data to a database, based on a visitor e-mail.
 
 By default, NextAuth is using [JWT](https://jwt.io/) to authenticate user sessions, meaning that the API routes which NextAuth automatically adds to the project can issue token and validate them with no need for an external database.
 
-(Note: editing the content of wizard flows is not based on end-user authentication in the live website. Rather, it's based on our default [Git-based CMS](https://docs.stackbit.com/conceptual-guides/modeling-storing-content/where-content-lives/) - meaning content is edited either via the Stackbit application, or directly by modifying the content files in your copy this repository.)
-
 More details on configuring OAuth providers to run your own server are found below.
 
 ### Database access
 
-To store a user's answers to the onboarding wizard, we're using [Upstash Redis](https://upstash.com/). Redis the open-source databaase itself is very easy to pickup, surprisingly powerful due to its many data structures. Upstash offer serverless Redis hosting with a free tier, and add their own REST API wrapper on top. That HTTPS API is useful for usage from API routes, which as serverless functions typically can't guarantee a persistent connection to the DB.
+To store a user's answers to the onboarding wizard, we're using [Upstash Redis](https://upstash.com/). 
 
-### Onboarding experience
+Redis (as in the open-source database) is very easy to pickup, robust and surprisingly powerful due to its many data structures. Upstash offer serverless Redis hosting with a free tier, and add their own REST API wrapper on top. That HTTPS API is useful for usage from API routes, which as serverless functions typically can't guarantee a persistent connection to the DB.
+
+### Onboarding experience: wizard flows
+
+Based on all the above, here's the main feature of this app: 
+
+Being able to visually build & edit wizard-like flows that will appear to visitors. 
+
+Flows can have multiple steps, each containing a set of configurable input controls. Each input control is configured to pass the entered data into a variable name in the user profile (think of the user profile as a JSON object - which is exactly how it's stored to the DB).
+
 
 here the onus is on editability (TBD add pics)
 
