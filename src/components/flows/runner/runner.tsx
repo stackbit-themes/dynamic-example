@@ -67,17 +67,14 @@ const WizardFlowRunner: WizardFlowComponent = ({ flow }) => {
 
             <div className="flex justify-center">
                 {steps.map((step, index) => {
-                    const stepType = step.type || 'WizardStep';
+                    const stepType = step.type || 'WizardStep'; // TODO remove when type is stored always
                     const StepComponent = getComponent(stepType) as WizardStepComponent;
-                    if (!StepComponent)
-                        throw new Error(`no component matching the step type: ${step.type}`);
-
                     const isCurrStep = index == currStep;
                     return (
                         <div className={'flex m-6 ' + (isCurrStep ? '' : 'hidden')} key={index}>
                             <StepComponent
                                 {...step}
-                                data-sb-field-path={`steps.${index}`}
+                                annotate={false}
                                 onValidityChange={isCurrStep ? handleStepValidityChange : null}
                                 onVarsChange={isCurrStep ? handleVarsChange : null}
                             />

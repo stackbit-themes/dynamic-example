@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getComponent } from '../../components-registry';
-import { WizardFlowComponent } from '../types';
+import { WizardFlowComponent, WizardStepComponent } from '../types';
 import { ValidFlowNotification, FlowValidationAlerts } from './notifications';
 import { validateFlowDefinition } from './validation';
 
@@ -26,19 +26,23 @@ const WizardFlowEditor: WizardFlowComponent = ({ flow }) => {
                         }}
                     />
                 ) : (
-                        <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
-                    )}
+                    <FlowValidationAlerts errorMessages={flowDefinitionErrors} />
+                )}
                 <div data-sb-field-path=".steps">
                     {steps.map((step, index) => {
-                        // TODO remove when bug fixed (type not stored when only one model type matches)
-                        const stepType = step.type || 'WizardStep';
-                        const Component = getComponent(stepType);
+                        const stepType = step.type || 'WizardStep'; // TODO remove when type is stored always
+                        const StepComponent = getComponent(stepType) as WizardStepComponent;
+
                         // When adding/removing controls in the studio, recreate the step to have a new state
                         const key = `step-${index}-controls-${step.controls?.length || 0}`;
                         return (
                             <div className="flex m-6" key={key}>
                                 <div className="text-8xl p-4 w-20">{index + 1}</div>
-                                <Component {...step} data-sb-field-path={`.${index}`} />
+                                <StepComponent
+                                    {...step}
+                                    annotate={true}
+                                    data-sb-field-path={`.${index}`}
+                                />
                             </div>
                         );
                     })}

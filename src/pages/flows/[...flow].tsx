@@ -19,16 +19,19 @@ const FlowPage: React.FunctionComponent<SingleFlowPageProps> = (props) => {
     const { page: flow, site } = props;
 
     let Component: WizardFlowComponent;
+    let annotate: boolean;
     const flowAction = (flow.__metadata as WizardFlowMetadataModel).flowAction;
     if (flowAction === 'run') {
         Component = WizardFlowRunner;
+        annotate = false;
     } else if (flowAction === 'edit') {
         Component = WizardFlowEditor;
+        annotate = true;
     } else {
         throw new Error(`flowAction was not set when loading content: ${flow.__metadata}`);
     }
     return (
-        <BaseLayout page={flow} site={site}>
+        <BaseLayout page={flow} site={site} annotate={annotate}>
             <Component flow={flow} />
         </BaseLayout>
     );

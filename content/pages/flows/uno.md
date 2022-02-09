@@ -23,6 +23,13 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
+      - required: true
+        label: Label for this control
+        variableName: awesomeness2
+        minValue: 0
+        maxValue: 100
+        defaultValue: 50
+        type: WizardSliderControl
   - type: WizardStep
     title: Getting to know you
     description: |
@@ -57,6 +64,6 @@ steps:
       Just so we have three, really...
     controls:
       - type: WizardTextControl
-        label: 'Do you have an alternative nickname?'
+        label: Do you have an alternative nickname?
         variableName: altNickname
 ---
