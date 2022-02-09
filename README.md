@@ -1,15 +1,73 @@
 # Stackbit Dynamic Example App
 
-Explore the [live demo](https://dynamic-stuff-e7b4f.netlify.app/).
+Explore [live demo](https://dynamic-stuff-e7b4f.netlify.app/).
+
+This is a showcase of multiple capabilities your Stackbit-based websites can have, beyond what our starter themes show.
+
+Included are some topics we've been asked about by users, plus some that people may not realize are doable (and we daresay: are even fun to build!) with Stackbit.
 
 ![Screenshot of a flow in the app](/docs/demo-flow.png)
 
+<p align="center">
+    <i>
+        Photos by <a href="https://unsplash.com/@harryswales?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Harry Swales</a>, <a href="https://unsplash.com/@hectorbermudez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hector Bermudez</a>, <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a>, <a href="https://unsplash.com/@scottwebb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scott Webb</a>, <a href="https://unsplash.com/@marcelalaskoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcela Laskoski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </i>
+</p>
+
+## What's inside
+
+### Built on Next.js and daisyUI
+
+This a Next.js-based website built with [Tailwind CSS](https://tailwindcss.com/) and [daisyUI](https://daisyui.com/).
+
+daisyUI is a fun, meticulously-done library of CSS components built on Tailwind. Its appeal (except for how nice it looks) is in how it thoughtfully [combines multiple Tailwind classes](https://twitter.com/Saadeghi/status/1443869771704029192) into a curated set meta-classes - which are easy to start with, style to your needs and build on. Please forgive any visual atrocities in this app; these are our own fault ;-)
+
+### Authentication
+
+We're using the excellent [NextAuth.js](https://next-auth.js.org/) package to allow easy authentication through Google & GitHub as OAuth providers (and you can of course add others). 
+
+This is used to protect pages and API routes behind authentication, to pull the user's basic details (e-mail, name and image) for display and to be able to store & fetch per-user data to a database, based on a visitor e-mail.
+
+By default, NextAuth is using [JWT](https://jwt.io/) to authenticate user sessions, meaning that the API routes which NextAuth automatically adds to the project can issue token and validate them with no need for an external database.
+
+(Note: editing the content of wizard flows is not based on end-user authentication in the live website. Rather, it's based on our default [Git-based CMS](https://docs.stackbit.com/conceptual-guides/modeling-storing-content/where-content-lives/) - meaning content is edited either via the Stackbit application, or directly by modifying the content files in your copy this repository.)
+
+More details on configuring OAuth providers to run your own server are found below.
+
+### Database access
+
+To store a user's answers to the onboarding wizard, we're using [Upstash Redis](https://upstash.com/). Redis the open-source databaase itself is very easy to pickup, surprisingly powerful due to its many data structures. Upstash offer serverless Redis hosting with a free tier, and add their own REST API wrapper on top. That HTTPS API is useful for usage from API routes, which as serverless functions typically can't guarantee a persistent connection to the DB.
+
+### Onboarding experience
+
+here the onus is on editability (TBD add pics)
+
+### more...
+5. Multiple page type - catch all, optional catch-all and specific routes - some based on model, some not (but pull the content they need), content objects having multiple views (one for the editor, one for the end user)
+6. TS almost through and through
+
+## What's coming
+
+## Setting up locally
+
+### basics
+
+clone, nvm, npm i, npm run dev
+
+### running the flow
+without auth
+modeled - wizard flow, step, controls - all going into the user profile when you're logged-in
+(or console.log)
+editor
+
+### redis
+
+using rest api for global access (though netlify runs in one region
+
 ## NextAuth
 
-### Creating a trusted localhost certificate
-
-**TBD** Write details of how to generate and make it trusted on the mac (at least by Safari?)
-This differs a bit in current OS versions vs. existing articles online.
+### Needing HTTPS
+note on custom cert vs. tunnels
 
 ### Enabling sign-in with Google
 
@@ -62,3 +120,8 @@ GITHUB_CLIENT_SECRET=<Client secret you've created for the app and kept>
 
 For local testing, you can now run a local HTTPS server via `npm run dev-https`.
 This requires having a trusted self-signed certificate (TBD instructions for Mac + Safari above).
+
+---
+**A note on your privacy:** 
+
+When using the live demo of this app, we _do not collect_ the details of any logins. If you run one of the 'wizard flows' in the app as a logged-in user, the data stored is set to auto-expire in a few days - or simply click the very visible button 'Forget me'.
