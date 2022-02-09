@@ -1,6 +1,8 @@
 # Stackbit Dynamic Example App
 
-**TBD** write-up :-)
+Explore the [live demo](https://dynamic-stuff-e7b4f.netlify.app/).
+
+![Screenshot of a flow in the app](/docs/demo-flow.png)
 
 ## NextAuth
 
