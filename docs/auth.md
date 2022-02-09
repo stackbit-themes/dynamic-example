@@ -10,11 +10,12 @@ You'll also need to provide an HTTPS URL in your website that auth providers wil
 
 Since a local dev server doesn't have certificates (let alone trusted ones), you got two options:
 
-**(1) The cumbersome DIY method:** generate a cert locally and run `npm run dev-https` to start Next.js as an HTTPS server.
+**(1) The DIY method:** generate a cert locally and run `npm run dev-https` to start Next.js as an HTTPS server.
 
 The browser would complain, but let you navigate to your website if you insist on it (or at least, Chrome will; to work with Safari on a Mac you'd need to add the cert to your OS keychain, or better yet - generate it through the Keychain app, from which you can then export it).
 
-new
+**(2) The easier method:** use a tunnel application such as [ngrok](https://ngrok.com/) (requires free registration) to get an HTTPS host:port to proxy your plain HTTP local server.
+
 Tunneling solutions typically won't let you have a fixed address with their free plan, so you'll have to re-configure the auth providers with the new URL each time it changes. Of course, keep in mind that you get a **public address**.
 
 If you're using the tunnel method, you'd need to let NextAuth know the public URL to your website by setting `NEXTAUTH_URL` (see the [docs](https://next-auth.js.org/configuration/options#nextauth_url)).
