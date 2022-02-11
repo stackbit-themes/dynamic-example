@@ -25,13 +25,6 @@ steps:
         defaultValue: 5
       - required: true
         label: Label for this control
-        variableName: awesomeness2
-        minValue: 0
-        maxValue: 100
-        defaultValue: 50
-        type: WizardSliderControl
-      - required: true
-        label: Label for this control
         variableName: moreInfo
         images:
           - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
