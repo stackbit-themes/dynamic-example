@@ -30,6 +30,11 @@ steps:
         maxValue: 100
         defaultValue: 50
         type: WizardSliderControl
+      - required: true
+        label: Label for this control
+        variableName: ''
+        images: []
+        type: WizardImageSelectControl
   - type: WizardStep
     title: Getting to know you
     description: |
