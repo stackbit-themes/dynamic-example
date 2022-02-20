@@ -24,7 +24,7 @@ steps:
         maxValue: 10
         defaultValue: 5
       - required: true
-        label: Label for this control
+        label: Choose your Cactus
         variableName: ''
         images:
           - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
