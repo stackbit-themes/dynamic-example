@@ -23,6 +23,11 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
+      - required: true
+        label: Label for this control
+        variableName: ''
+        images: []
+        type: WizardImageSelectControl
   - type: WizardStep
     title: Getting to know you
     description: |
