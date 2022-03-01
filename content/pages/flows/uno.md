@@ -86,7 +86,7 @@ steps:
         maxValue: 100
         defaultValue: 50
         type: WizardSliderControl
-  - title: Step title
+  - title: Step titlesfddsfds
     description: Markdown-based description
     controls: []
   - type: WizardStep
