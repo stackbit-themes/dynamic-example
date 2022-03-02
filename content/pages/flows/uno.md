@@ -56,7 +56,7 @@ steps:
           - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
             label: 'Default Cacti :-)'
             value: cacti
-  - title: Step titlesfddsfds
+  - title: Just for you honey
     description: Markdown-based description
     controls: []
   - type: WizardStep
