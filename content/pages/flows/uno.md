@@ -23,17 +23,6 @@ steps:
         minValue: 0
         maxValue: 10
         defaultValue: 5
-      - required: true
-        label: Choose your Cactus
-        variableName: ''
-        images:
-          - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
-            label: 'Default Cacti :-)'
-            value: cacti
-          - image: /images/scott-webb-GQD3Av_9A88-unsplash.jpg
-            label: 'Default Cacti :-)'
-            value: cacti
-        type: WizardImageSelectControl
   - type: WizardStep
     title: Getting to know you
     description: >
