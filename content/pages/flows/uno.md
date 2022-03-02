@@ -63,13 +63,6 @@ steps:
         maxValue: 100
         defaultValue: 50
         type: WizardSliderControl
-      - required: true
-        label: Label for this control
-        variableName: ''
-        minValue: 0
-        maxValue: 100
-        defaultValue: 50
-        type: WizardSliderControl
   - title: Step titlesfddsfds
     description: Markdown-based description
     controls: []
