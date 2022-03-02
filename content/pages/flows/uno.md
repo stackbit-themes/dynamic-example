@@ -61,7 +61,7 @@ steps:
     controls:
       - required: true
         label: Label for this control
-        variableName: ''
+        variableName: arsenyCatName
         minLength: 1
         type: WizardTextControl
   - type: WizardStep
