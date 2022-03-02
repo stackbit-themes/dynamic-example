@@ -60,7 +60,7 @@ steps:
     description: Markdown-based description
     controls:
       - required: true
-        label: Label for this control
+        label: Your cat name
         variableName: arsenyCatName
         minLength: 1
         type: WizardTextControl
