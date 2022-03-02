@@ -59,6 +59,9 @@ steps:
   - title: Just for you honey
     description: Markdown-based description
     controls: []
+  - title: Step title
+    description: Markdown-based description
+    controls: []
   - type: WizardStep
     title: A final step
     description: |
