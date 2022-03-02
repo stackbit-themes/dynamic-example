@@ -32,13 +32,6 @@ steps:
 
       *(actually, it's a demo and all user data auto-expires...)*
     controls:
-      - required: true
-        label: Label for this control
-        variableName: ''
-        minValue: 0
-        maxValue: 100
-        defaultValue: 50
-        type: WizardSliderControl
       - type: WizardImageSelectControl
         required: false
         label: What kinds of music do you like?
