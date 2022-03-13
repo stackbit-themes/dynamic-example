@@ -2,17 +2,9 @@
 
 This is a showcase of multiple capabilities your Stackbit-based websites can have, beyond what our starter themes show.
 
-Included are some topics we've been asked about by users, plus some that people may not realize are doable (and we daresay: are even fun to build!) with Stackbit.
-
 A [live demo](https://stackbit-dynamic-example.netlify.app/) is available.
 
-![Screenshot of a flow in the app](/docs/demo-flow.png)
-
-<p align="center">
-    <i>
-        Photos by <a href="https://unsplash.com/@harryswales?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Harry Swales</a>, <a href="https://unsplash.com/@hectorbermudez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hector Bermudez</a>, <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a>, <a href="https://unsplash.com/@scottwebb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scott Webb</a> and <a href="https://unsplash.com/@marcelalaskoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcela Laskoski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-    </i>
-</p>
+https://user-images.githubusercontent.com/2673881/154841571-2aa502af-b702-49ba-a4dd-914da5e085b5.mp4
 
 ## What's included
 
@@ -44,6 +36,14 @@ Based on all the above, here's the main feature of this app: <br/>
 Being able to visually build & edit wizard-like flows that will appear to visitors.
 
 ![Editing a wizard flow in Stackbit](/docs/edit-flow.png)
+
+![Screenshot of a flow in the app](/docs/demo-flow.png)
+
+<p align="center">
+    <i>
+        Photos by <a href="https://unsplash.com/@harryswales?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Harry Swales</a>, <a href="https://unsplash.com/@hectorbermudez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hector Bermudez</a>, <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a>, <a href="https://unsplash.com/@scottwebb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scott Webb</a> and <a href="https://unsplash.com/@marcelalaskoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcela Laskoski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </i>
+</p>
 
 - Flows can have multiple steps, each containing a set of configurable input controls. Each input control is configured to pass the entered data into a variable name in the user profile (think of the user profile as a JSON object - which is exactly how it's stored to the DB).
 
