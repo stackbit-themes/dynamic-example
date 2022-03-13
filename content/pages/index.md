@@ -3,7 +3,7 @@ title: Home
 layout: GeneralPage
 sections:
   - type: SimpleTextSection
-    title: Hello stranger!
+    title: Hello stranger!!!
     subtitle: 'To start your journey, we recommend that you sign in.'
     content: _(this section was set to appear only for anonymous users)_
     userGroup: anonymous

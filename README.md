@@ -2,7 +2,7 @@
 
 This is a showcase of multiple capabilities your Stackbit-based websites can have, beyond what our starter themes show.
 
-A [live demo](https://dynamic-stuff-e7b4f.netlify.app/) is available.
+A [live demo](https://stackbit-dynamic-example.netlify.app/) is available.
 
 https://user-images.githubusercontent.com/2673881/154841571-2aa502af-b702-49ba-a4dd-914da5e085b5.mp4
 

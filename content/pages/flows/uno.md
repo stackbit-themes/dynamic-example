@@ -25,10 +25,12 @@ steps:
         defaultValue: 5
   - type: WizardStep
     title: Getting to know you
-    description: |
-      We'd like to get to know your taste in music for, for a better experience.
+    description: >
+      We'd **like** to get to know your taste in music for, for a *better*
+      experience.
 
-      _(actually, it's a demo and all user data auto-expires...)_
+
+      *(actually, it's a demo and all user data auto-expires...)*
     controls:
       - type: WizardImageSelectControl
         required: false
