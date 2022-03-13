@@ -4,7 +4,7 @@ This is a showcase of multiple capabilities your Stackbit-based websites can hav
 
 Included are some topics we've been asked about by users, plus some that people may not realize are doable (and we daresay: are even fun to build!) with Stackbit.
 
-A [live demo](https://dynamic-stuff-e7b4f.netlify.app/) is available.
+A [live demo](https://stackbit-dynamic-example.netlify.app/) is available.
 
 ![Screenshot of a flow in the app](/docs/demo-flow.png)
 
