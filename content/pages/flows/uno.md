@@ -19,7 +19,7 @@ steps:
       - type: WizardSliderControl
         required: true
         label: Label for this control
-        variableName: ''
+        variableName: someVariable
         minValue: 0
         maxValue: 100
         defaultValue: 50
