@@ -3,7 +3,7 @@ title: Uno Flow
 layout: WizardFlow
 steps:
   - type: WizardStep
-    title: The basics
+    title: Tell about your wife
     description: |
       This card is for _us_ to get to know **you**!
     controls:
