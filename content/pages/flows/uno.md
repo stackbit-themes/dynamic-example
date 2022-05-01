@@ -70,7 +70,7 @@ steps:
             label: 'Default Cacti :-)'
             value: cacti
   - type: WizardStep
-    title: Step title
+    title: Step just for Stefan
     description: Markdown-based description
     controls: []
   - type: WizardStep
