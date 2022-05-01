@@ -70,6 +70,10 @@ steps:
             label: 'Default Cacti :-)'
             value: cacti
   - type: WizardStep
+    title: Step title
+    description: Markdown-based description
+    controls: []
+  - type: WizardStep
     title: A final step
     description: |
       Just so we have three, really...
