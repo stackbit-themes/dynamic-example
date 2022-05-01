@@ -7,6 +7,11 @@ steps:
     description: |
       This card is for _us_ to get to know **you**!
     controls:
+      - type: WizardImageSelectControl
+        required: true
+        label: Label for this control
+        variableName: ''
+        images: []
       - type: WizardTextControl
         required: true
         label: How shall we call you?
