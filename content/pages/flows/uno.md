@@ -27,7 +27,7 @@ steps:
         variableName: someVariable
         minValue: 0
         maxValue: 100
-        defaultValue: 50
+        defaultValue: 25
       - type: WizardSliderControl
         required: true
         label: Your awesomeness factor
